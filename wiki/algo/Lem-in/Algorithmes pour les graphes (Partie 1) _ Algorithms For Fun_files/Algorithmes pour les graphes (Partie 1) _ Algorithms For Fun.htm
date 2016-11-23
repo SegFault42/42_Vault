@@ -1,0 +1,920 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0072)https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr-FR" hc="noinvert-dim3 " class="wf-eticadisplay1-n2-active wf-eticadisplay1-n9-active wf-active"><script type="text/javascript">window["_gaUserPrefs"] = { ioo : function() { return true; } }</script><div id="deluminate_fullscreen_workaround" style="background: url(&quot;https://s0.wp.com/wp-content/themes/pub/inove/img/bg.jpg&quot;) 0% 0% / auto repeat-x scroll padding-box border-box rgb(190, 195, 198); position: absolute; top: 0px; left: 0px; width: 1876px; height: 9287px; display: block; z-index: -2147483648;" deluminate_imagetype="jpg"></div><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Algorithmes pour les graphes (Partie 1) | Algorithms For Fun</title>
+
+<link rel="stylesheet" href="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/style.css" type="text/css" media="screen">
+
+<script async="" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/beacon.js"></script><script src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/webfont.js" type="text/javascript" async=""></script><script type="text/javascript" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/base.js"></script>
+<script type="text/javascript" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/menu.js"></script>
+
+<link rel="pingback" href="https://tfeysal.wordpress.com/xmlrpc.php">
+<meta name="google-site-verification" content="7hanHBs35_n1wjpYnWx6XTaskIsZlnan96bFGyYUBIs">
+<meta name="msvalidate.01" content="17C9CBE1457527DBAD2554586DB0B928">
+<link rel="dns-prefetch" href="https://s2.wp.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://s1.wp.com/">
+<link rel="alternate" type="application/rss+xml" title="Algorithms For Fun » Flux" href="https://tfeysal.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Algorithms For Fun » Flux des commentaires" href="https://tfeysal.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Algorithms For Fun » Algorithmes pour les graphes (Partie 1) Flux des commentaires" href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/feed/">
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s1.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1473172720h&ver=4.6.1-RC1-38499"}};
+			!function(a,b,c){function d(a){var c,d,e,f,g,h=b.createElement("canvas"),i=h.getContext&&h.getContext("2d"),j=String.fromCharCode;if(!i||!i.fillText)return!1;switch(i.textBaseline="top",i.font="600 32px Arial",a){case"flag":return i.fillText(j(55356,56806,55356,56826),0,0),!(h.toDataURL().length<3e3)&&(i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,65039,8205,55356,57096),0,0),c=h.toDataURL(),i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,55356,57096),0,0),d=h.toDataURL(),c!==d);case"diversity":return i.fillText(j(55356,57221),0,0),e=i.getImageData(16,16,1,1).data,f=e[0]+","+e[1]+","+e[2]+","+e[3],i.fillText(j(55356,57221,55356,57343),0,0),e=i.getImageData(16,16,1,1).data,g=e[0]+","+e[1]+","+e[2]+","+e[3],f!==g;case"simple":return i.fillText(j(55357,56835),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode8":return i.fillText(j(55356,57135),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode9":return i.fillText(j(55358,56631),0,0),0!==i.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity","unicode9"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/wp-emoji-release.min.js" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="all-css-0-1" href="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/saved_resource" type="text/css" media="all">
+<script type="text/javascript" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/saved_resource(1)"></script>
+<link rel="stylesheet" id="all-css-0-2" href="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/style(1).css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s1.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563h&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://tfeysal.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="La notation O pour les nuls" href="https://tfeysal.wordpress.com/2010/08/13/la-notation-o-pour-les-nuls/">
+<link rel="next" title="Programmer un Tetris en C++ : Partie 1" href="https://tfeysal.wordpress.com/2011/01/10/programmer-un-tetris-en-c-partie-1/">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/">
+<link rel="shortlink" href="http://wp.me/p11z3d-27">
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=json&amp;url=https%3A%2F%2Ftfeysal.wordpress.com%2F2010%2F11%2F21%2Falgorithmes-pour-les-graphes-1%2F&amp;for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=xml&amp;url=https%3A%2F%2Ftfeysal.wordpress.com%2F2010%2F11%2F21%2Falgorithmes-pour-les-graphes-1%2F&amp;for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Algorithmes pour les graphes (Partie 1)">
+<meta property="og:url" content="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/">
+<meta property="og:description" content="Cet article constitue le premier d’une série sur les graphes. Celui ci traitera de la représentation des graphes et d’un premier algorithme de manipulation, le parcours en largeur. Le s…">
+<meta property="article:published_time" content="2010-11-21T15:31:10+00:00">
+<meta property="article:modified_time" content="2011-02-17T18:06:01+00:00">
+<meta property="og:site_name" content="Algorithms For Fun">
+<meta property="og:image" content="https://tfeysal.files.wordpress.com/2010/11/graphe2.png?w=300">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:site" content="@wordpressdotcom">
+<meta name="twitter:image" content="https://tfeysal.files.wordpress.com/2010/11/graphe.png?w=240">
+<meta name="twitter:card" content="summary">
+<meta property="fb:app_id" content="249643311490">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+<link rel="shortcut icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="https://s0.wp.com/i/webclip.png">
+<link rel="openid.server" href="https://tfeysal.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="https://tfeysal.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="https://tfeysal.wordpress.com/osd.xml" title="Algorithms For Fun">
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com">
+		<style id="wpcom-hotfix-masterbar-style">
+			@media screen and (min-width: 783px) {
+				#wpadminbar .quicklinks li#wp-admin-bar-my-account.with-avatar > a img {
+					margin-top: 5px;
+				}
+			}
+		</style>
+		<script type="text/javascript" id="webfont-output">
+  
+  WebFontConfig = {"typekit":{"id":"qjc6nax"}};
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+	})();
+</script><meta name="application-name" content="Algorithms For Fun"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="Simplement un blog sur l&#39;informatique, la programmation, les algorithmes, les études, ..."><meta name="msapplication-task" content="name=S&#39;abonner;action-uri=https://tfeysal.wordpress.com/feed/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Inscrivez-vous pour un blog gratuit;action-uri=http://wordpress.com/signup/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Soutien WordPress.com;action-uri=http://support.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Forums WordPress.com;action-uri=http://forums.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="title" content="Algorithmes pour les graphes (Partie 1) | Algorithms For Fun sur WordPress.com">
+<meta name="description" content="Cet article constitue le premier d&#39;une série sur les graphes. Celui ci traitera de la représentation des graphes et d&#39;un premier algorithme de manipulation, le parcours en largeur. Le seul prérequis pour lire cet article est une bonne connaissance d&#39;un langage de programmation comme le C++ (ou Python, Java, ...) pour mettre en pratique les…">
+		<script type="text/javascript" src="https://c.amazon-adsystem.com/aax2/amzn_ads.js"></script>
+		<script type="text/javascript">
+		try { amznads.getAds("3033"); } catch(e) { /* ignore */ }
+		</script>
+		<script type="text/javascript">
+		try {
+			var a9_p = amznads.getKeys(),
+			_ipw_custom = {
+				wordAds: '0',
+				adSafe: '0',
+				domain: 'tfeysal.wordpress.com',
+				pageURL: 'https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/'
+			};
+			if("undefined"!=typeof a9_p&&""!=a9_p&&null!==a9_p&&"[object Array]"===Object.prototype.toString.call(a9_p)){var a="",b=0,c=a9_p.length;a9_p.sort();for(var d=0;d<c;d++){a9_p[d-b]=a9_p[d-b].replace(/a1x6p/,"a160x600p");var e=a9_p[d-b].split("p");e[0]==a&&(a9_p.splice(d-b,1),b++);a=e[0]}_ipw_custom.amznPay=a9_p};document.close();
+		} catch(e) {}
+		</script>		<!-- IPONWEB header script -->
+		<script type="text/javascript" src="https://s.pubmine.com/head.js"></script>
+		<script type="text/javascript">
+		jQuery(window).ready(function () {
+			jQuery("a.wpa-about").text("Concernant ces publicités");
+		});
+		</script><link rel="amphtml" href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/amp/"><link rel="stylesheet" type="text/css" href="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/shCore.css"><link rel="stylesheet" type="text/css" href="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/shThemeDefault.css"><style type="text/css" id="syntaxhighlighteranchor"></style>
+<script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script type="text/javascript" async="" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/ga.js"></script>
+<style type="text/css">.tk-etica-display{font-family:"etica-display-1","etica-display-2",sans-serif;}</style><style type="text/css">@font-face{font-family:etica-display-1;src:url(https://use.typekit.net/af/448c88/00000000000000000001737d/27/l?subset_id=2&fvd=n2) format("woff2"),url(https://use.typekit.net/af/448c88/00000000000000000001737d/27/d?subset_id=2&fvd=n2) format("woff"),url(https://use.typekit.net/af/448c88/00000000000000000001737d/27/a?subset_id=2&fvd=n2) format("opentype");font-weight:200;font-style:normal;}@font-face{font-family:etica-display-1;src:url(https://use.typekit.net/af/c684bc/00000000000000000001737f/27/l?subset_id=2&fvd=n9) format("woff2"),url(https://use.typekit.net/af/c684bc/00000000000000000001737f/27/d?subset_id=2&fvd=n9) format("woff"),url(https://use.typekit.net/af/c684bc/00000000000000000001737f/27/a?subset_id=2&fvd=n9) format("opentype");font-weight:900;font-style:normal;}</style><script charset="utf-8" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/rate.php"></script><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/services.css"><style type="text/css" id="pd_popup_holder_style_2514839_post_131">#pd_popup_holder_2514839_post_131 { position:absolute; display:none; width:350px; height:auto; top:0px; left:0px; z-index:10000; border:solid 1px #CCC; background-color:white; padding:0px 15px;font-family:Arial,Sans;box-shadow: -10px 10px 20px rgba(0, 0, 0, .5);-webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, .25);-moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, .25); }</style></head>
+
+<body class="single single-post postid-131 single-format-standard mp6 customizer-styles-applied highlander-enabled highlander-light">
+<!-- wrap START -->
+<div id="wrap" deluminate_imagetype="gif">
+
+<!-- container START -->
+<div id="container">
+
+<!-- header START -->
+<div id="header" deluminate_imagetype="jpg">
+
+	<!-- banner START -->
+		<!-- banner END -->
+
+	<div id="caption">
+		<h1 id="title"><a href="https://tfeysal.wordpress.com/">Algorithms For Fun</a></h1>
+		<div id="tagline">Simplement un blog sur l'informatique, la programmation, les algorithmes, les études, …</div>
+	</div>
+
+	<div class="fixed"></div>
+</div>
+<!-- header END -->
+
+<!-- navigation START -->
+<div id="navigation">
+	<!-- menus START -->
+	<ul id="menus">
+	<li class="page_item"><a class="home" title="Accueil" href="https://tfeysal.wordpress.com/" deluminate_imagetype="gif">Accueil</a></li>
+	<li class="page_item page-item-2"><a href="https://tfeysal.wordpress.com/a-propos/" deluminate_imagetype="gif">À propos</a></li>
+	<li><a class="lastmenu" href="javascript:void(0);" deluminate_imagetype="gif"></a></li>
+</ul>
+
+	<!-- menus END -->
+
+	<!-- searchbox START -->
+	<div id="searchbox" deluminate_imagetype="gif">
+		<form action="https://tfeysal.wordpress.com/" method="get">
+			<div class="content">
+				<input type="text" class="textfield searchtip" name="s" size="24" value="">
+				<input type="submit" class="button" value="">
+			</div>
+		</form>
+	</div>
+<script type="text/javascript">
+//<![CDATA[
+	var searchbox = MGJS.$("searchbox");
+	var searchtxt = MGJS.getElementsByClassName("textfield", "input", searchbox)[0];
+	var searchbtn = MGJS.getElementsByClassName("button", "input", searchbox)[0];
+	var tiptext = "Type text to search here...";
+	if(searchtxt.value == "" || searchtxt.value == tiptext) {
+		searchtxt.className += " searchtip";
+		searchtxt.value = tiptext;
+	}
+	searchtxt.onfocus = function(e) {
+		if(searchtxt.value == tiptext) {
+			searchtxt.value = "";
+			searchtxt.className = searchtxt.className.replace(" searchtip", "");
+		}
+	}
+	searchtxt.onblur = function(e) {
+		if(searchtxt.value == "") {
+			searchtxt.className += " searchtip";
+			searchtxt.value = tiptext;
+		}
+	}
+	searchbtn.onclick = function(e) {
+		if(searchtxt.value == "" || searchtxt.value == tiptext) {
+			return false;
+		}
+	}
+//]]>
+</script>
+	<!-- searchbox END -->
+
+	<div class="fixed"></div>
+</div>
+<!-- navigation END -->
+
+<!-- content START -->
+<div id="content" deluminate_imagetype="gif">
+
+	<!-- main START -->
+	<div id="main" deluminate_imagetype="gif">
+
+
+	<div id="postpath" deluminate_imagetype="gif">
+		<a title="Go to homepage" href="https://tfeysal.wordpress.com/">Accueil</a>
+		 &gt; <a href="https://tfeysal.wordpress.com/category/algorithmes/" rel="category tag">Algorithmes</a>, <a href="https://tfeysal.wordpress.com/category/problemes/" rel="category tag">Problèmes</a>, <a href="https://tfeysal.wordpress.com/category/tutos/" rel="category tag">Tutos</a>		 &gt; Algorithmes pour les graphes (Partie&nbsp;1)	</div>
+
+	<div id="post-131" class="post-131 post type-post status-publish format-standard hentry category-algorithmes category-problemes category-tutos tag-bfs tag-breadth-first-search tag-graph tag-graphes tag-parcours-en-largeur">
+		<h2>Algorithmes pour les graphes (Partie&nbsp;1)</h2>
+		<div class="info">
+			<span class="date" deluminate_imagetype="gif">21 novembre 2010</span>
+			<span class="author" deluminate_imagetype="gif"><a href="https://tfeysal.wordpress.com/author/feysal21/" title="Articles par Faiçal" rel="author">Faiçal</a></span>										<span class="addcomment" deluminate_imagetype="gif"><a href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/#respond">Laisser un commentaire</a></span>
+				<span class="comments" deluminate_imagetype="gif"><a href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/#comments">Go to comments</a></span>
+						<div class="fixed"></div>
+		</div>
+		<div class="content">
+			<p style="text-align:justify;">Cet article constitue le premier d’une série sur les graphes. Celui ci traitera de la représentation des graphes et d’un premier algorithme de manipulation, <strong>le parcours en largeur</strong>. Le seul prérequis pour lire cet article est une bonne connaissance d’un langage de programmation comme le C++ (ou Python, Java, …) pour mettre en pratique les algorithmes présentés.</p>
+<p style="text-align:justify;"><span id="more-131"></span></p>
+<p style="text-align:justify;"><strong><span style="text-decoration:underline;">Au fait, c’est quoi un graphe ?</span></strong></p>
+<p style="text-align:justify;">En informatique, un graphe c’est une structure de données, oui tout comme les tableaux. En effet, c’est une structure de données composée de noeuds interconnectés entre eux par des arêtes. Chaque noeud contient une ou plusieurs données de n’importe quel type. Comme une image vaut mieux qu’un long discours …</p>
+<p style="text-align:justify;"><a href="https://tfeysal.files.wordpress.com/2010/11/graphe.png"><img class="aligncenter size-medium wp-image-132" title="graphe" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/graphe.png" alt="" width="300" height="198" srcset="https://tfeysal.files.wordpress.com/2010/11/graphe.png?w=300&amp;h=198 300w, https://tfeysal.files.wordpress.com/2010/11/graphe.png?w=150&amp;h=99 150w, https://tfeysal.files.wordpress.com/2010/11/graphe.png 333w" sizes="(max-width: 300px) 100vw, 300px"></a></p>
+<p style="text-align:justify;"><em><span style="text-decoration:underline;">Un graphe non orienté de 6 noeuds et de 7 arêtes.</span></em></p>
+<p style="text-align:justify;">Sur ce graphe, à partir du noeud 1, on peut accéder au noeud 5 et inversément, il n’y a aucun sens pour le parcours du graphe. C’est un <strong>graphe non orienté</strong>. Il existe aussi des <strong>graphes orientés</strong> qui imposent le sens dans lequel on va d’un noeud à un autre. Sur les schémas de ce genre de graphes, les arêtes sont fléchés indiquant le sens dans lequel on va d’un noeud à un autre comme ceci:</p>
+<p style="text-align:justify;"><a href="https://tfeysal.files.wordpress.com/2010/11/graphe_non_oriente.png"><img class="aligncenter size-medium wp-image-234" title="graphe_non_oriente" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/graphe_non_oriente.png" alt="" width="300" height="198" srcset="https://tfeysal.files.wordpress.com/2010/11/graphe_non_oriente.png?w=300&amp;h=198 300w, https://tfeysal.files.wordpress.com/2010/11/graphe_non_oriente.png?w=150&amp;h=99 150w, https://tfeysal.files.wordpress.com/2010/11/graphe_non_oriente.png 333w" sizes="(max-width: 300px) 100vw, 300px"></a></p>
+<p style="text-align:justify;"><em>(Vous excuserez les flèches immondes que j’ai mises sur le schéma, mais c’est pour illustrer mes propos)</em><span style="text-decoration:underline;"><em> </em></span></p>
+<p><em> </em></p>
+<p style="text-align:justify;">Dans le graphe ci-dessus par exemple, on ne peut aller du nœud 1 vers le nœud 2 mais pas inversement.</p>
+<p style="text-align:justify;"><strong><span style="text-decoration:underline;">Représentation des graphes en mémoire</span></strong></p>
+<p style="text-align:justify;">Le fait qu’un graphe soit orienté ou non n’influe pas sur sa représentation. C’est le résultat de la représentation qui sera différent en fonction du type du graphe. Il existe plusieurs manières de représenter les graphes en mémoire, ici nous n’en verrons que 2 (les 2 que je connais le mieux). Ces 2 représentations seront largement suffisantes pour la plupart des manipulations qu’il y a à faire sur les graphes.</p>
+<ul style="text-align:justify;">
+<li><strong>Matrice d’adjacence</strong></li>
+<li><strong>Liste d’adjacence</strong></li>
+</ul>
+<p style="text-align:justify;"><strong>Matrice d’adjacence</strong></p>
+<p style="text-align:justify;">Dans ce cas, le graphe est simplement représenté par un tableau à 2 dimensions (appelons le G) de taille N x N (avec N le nombre de noeuds du graphe).&nbsp; Cette représentation suit une règle très simple.</p>
+<pre deluminate_imagetype="gif">G[i][j] = 1 si les noeuds <em>i</em> et <em>j</em> sont connectés et 0 si non.</pre>
+<p style="text-align:justify;">Par exemple, le graphe non orienté précédent donnerait:</p>
+<table style="text-align:center;">
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align:justify;">G[1][2] = 1 car les noeuds 1 et 2 sont connectés, G[1][5] = 1; mais G[1][6] = 0 car il n’y a aucun lien entre les nœuds 1 et 5.</p>
+<p style="text-align:justify;"><strong>Liste d’adjacence</strong></p>
+<p style="text-align:justify;">Cette représentation consiste en un tableau G de N (avec N le nombre de nœuds du graphe) listes chaînées. Pour chaque nœud i du graphe, on aura sa liste d’adjacence G[i] qui sera composée des nœuds adjacents à i. Toujours avec notre graphe non orienté, on aura</p>
+<div><div id="highlighter_980250" class="syntaxhighlighter nogutter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">1: 2 -&gt; 5</code></div><div class="line number2 index1 alt1"><code class="plain plain">2: 1 -&gt; 3 -&gt; 5</code></div><div class="line number3 index2 alt2"><code class="plain plain">3: 2 -&gt; 4</code></div><div class="line number4 index3 alt1"><code class="plain plain">4: 3 -&gt; 5 -&gt; 6</code></div><div class="line number5 index4 alt2"><code class="plain plain">5: 1 -&gt; 2 -&gt; 4</code></div><div class="line number6 index5 alt1"><code class="plain plain">6: 4</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align:justify;">Le nœud 1 a dans sa liste d’adjacence les nœuds 2 et 5, le nœud 2 a dans sa liste les nœuds 1, 3 et 5 ainsi de suite.</p>
+<p style="text-align:justify;"><strong>Quelle représentation choisir&nbsp; ?</strong></p>
+<p style="text-align:justify;">Chacune de ces 2 représentations a des avantages et des inconvénients. Par exemple, pour vérifier si 2 nœuds sont connectés dans une représentation par liste d’adjacence, on est obligé de parcourir séquentiellement G[i] pour y rechercher j alors qu’avec une représentation par matrice d’adjacence, il suffit de vérifier si G[i][j] vaut 1, ce qui prend un temps constant. Cependant, plus le graphe est grand, plus la représentation par matrice d’adjacence utilise de la mémoire. On choisira telle ou telle représentation en fonction du problème. Dans la suite de cet article, nous représenterons les graphes par liste d’adjacence.</p>
+<p style="text-align:justify;"><strong><span style="text-decoration:underline;">Représentation par liste d’adjacence en C++</span></strong></p>
+<p style="text-align:justify;">Pour nous faciliter la tâche, on va se reposer sur le type <a title="list" href="http://cplusplus.com/reference/stl/list/" target="_blank">list</a> de la <a title="STL" href="http://cplusplus.com/reference/stl/">STL</a>.</p>
+<div><div id="highlighter_458843" class="syntaxhighlighter nogutter  cpp"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp preprocessor">#include&lt;iostream&gt;</code></div><div class="line number2 index1 alt1"><code class="cpp preprocessor">#include&lt;list&gt;</code></div><div class="line number3 index2 alt2">&nbsp;</div><div class="line number4 index3 alt1"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="cpp keyword bold">const</code> <code class="cpp color1 bold">int</code> <code class="cpp plain">N = 10; </code><code class="cpp comments">// Le nombre de noeuds du graphe</code></div><div class="line number7 index6 alt2"><code class="cpp keyword bold">const</code> <code class="cpp color1 bold">int</code> <code class="cpp plain">MAX = N + 1; </code><code class="cpp comments">// Le nombre de noeuds du graphe + 1</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="cpp color1 bold">int</code> <code class="cpp plain">main()</code></div><div class="line number10 index9 alt1"><code class="cpp plain">{</code></div><div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">list&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt; graph[MAX]; </code><code class="cpp comments">// On déclare un tableau de listes de taille MAX pour qu'on puisse commencer à l'indice 1 au lieu de 0</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">return</code> <code class="cpp plain">0;</code></div><div class="line number14 index13 alt1"><code class="cpp plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align:justify;">Aussi simple que çà, pour parcourir la liste d’adjacence d’un nœud, on utilise un <a title="itérateur" href="http://cplusplus.com/reference/std/iterator/" target="_blank">itérateur</a>. Un itérateur en C++ est un objet qui permet de parcourir une collection d’éléments (ici une liste).</p>
+<p>On pourrait par exemple afficher un graphe avec le code ci-dessous :</p>
+<div><div id="highlighter_270822" class="syntaxhighlighter nogutter  cpp"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp preprocessor">#include&lt;iostream&gt;</code></div><div class="line number2 index1 alt1"><code class="cpp preprocessor">#include&lt;list&gt;</code></div><div class="line number3 index2 alt2">&nbsp;</div><div class="line number4 index3 alt1"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="cpp keyword bold">const</code> <code class="cpp color1 bold">int</code> <code class="cpp plain">N = 10;</code></div><div class="line number7 index6 alt2"><code class="cpp keyword bold">const</code> <code class="cpp color1 bold">int</code> <code class="cpp plain">MAX = N + 1;</code></div><div class="line number8 index7 alt1">&nbsp;</div><div class="line number9 index8 alt2"><code class="cpp color1 bold">int</code> <code class="cpp plain">main()</code></div><div class="line number10 index9 alt1"><code class="cpp plain">{</code></div><div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">list&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt; graph[MAX];</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">for</code><code class="cpp plain">(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">i = 1; i &lt;= N; ++i)&nbsp;&nbsp;&nbsp; </code></div><div class="line number14 index13 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number15 index14 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp functions bold">printf</code><code class="cpp plain">(</code><code class="cpp string">"%d -&gt;"</code><code class="cpp plain">, i);</code></div><div class="line number16 index15 alt1">&nbsp;</div><div class="line number17 index16 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">/* On utilise un itérateur (it) pour parcourir la liste d'adjacence de i */</code></div><div class="line number18 index17 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">for</code><code class="cpp plain">(list&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt;::iterator it = graph[i].begin(); it != graph[i].end(); ++it)</code></div><div class="line number19 index18 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp functions bold">printf</code><code class="cpp plain">(</code><code class="cpp string">" %d"</code><code class="cpp plain">, *it); </code><code class="cpp comments">// On utilise *it pour accéder à la valeur pointée par it</code></div><div class="line number20 index19 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp functions bold">printf</code><code class="cpp plain">(</code><code class="cpp string">"\n"</code><code class="cpp plain">);</code></div><div class="line number21 index20 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number22 index21 alt1">&nbsp;</div><div class="line number23 index22 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">return</code> <code class="cpp plain">0;</code></div><div class="line number24 index23 alt1"><code class="cpp plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align:justify;">Pour ajouter un élément à la liste d’adjacence d’un nœud, il suffit d’appeler l’une des fonctions <em>push_front()</em> (insertion en tête de la liste) ou <em>push_back()</em> (insertion en queue de la liste) de la STL.</p>
+<p>Par exemple pour ajouter le nœud 2 à la liste d’adjacence de 1, on fera</p>
+<div><div id="highlighter_240303" class="syntaxhighlighter nogutter  cpp"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp plain">graph[1].push_front(2); </code><code class="cpp comments">// ou alors graph[1].push_back(2);</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align:justify;">Vous pourriez avoir des résultats différents selon que vous utilisiez <em>push_front()</em> ou <em>push_back()</em> en fonction de l’opération que vous êtes en train de faire sur votre graphe, mais ceux-ci seront toujours corrects pour autant que votre algorithme le soit. Par exemple, pour un algorithme de recherche plus court chemin, le plus court chemin que vous trouverez en construisant votre graphe avec <em>push_front() </em>sera peut-être différent de celui que vous auriez trouvé si vous l’aviez construit avec <em>push_back()</em>.</p>
+<p style="text-align:justify;">Maintenant qu’on en sait un peu plus sur les graphes et qu’on sait comment les représenter en mémoire, on passe aux choses sérieuses.</p>
+<p style="text-align:justify;"><strong><span style="text-decoration:underline;">Parcours en largeur (BFS : Breadth First Search)</span></strong></p>
+<p style="text-align:justify;">Le parcours en largeur d’un graphe ou <strong>breadth first search</strong> (en anglais) est un algorithme de parcours très simple. A partir d’un nœud origine, il passe par tous les arcs du graphe pour découvrir les noeuds accessibles depuis ce nœud origine. Donc, il permet à partir d’un nœud de connaître tous les nœuds qui lui sont accessibles. Mais pas seulement, il calcule aussi la distance entre ce nœud et les nœuds qui lui sont accessibles. Et il permet aussi de construire le chemin qui relie ce nœud origine à chacun des nœuds qui lui sont accessibles. Le parcours en largeur a une propriété très intéressante (peut-être la plus intéressante), prenons un graphe G sur lequel on a fait un parcours en largeur à partir d’un nœud u; pour tout nœud v accessible depuis u, le chemin de u vers v dans G constitue un plus court chemin de u vers v dans G. Ce qui veut donc dire que le parcours en largeur calcule les plus courts chemins du nœud origine vers chacun des nœuds qui lui sont accessibles.</p>
+<p style="text-align:justify;"><strong>Fonctionnement</strong></p>
+<p style="text-align:justify;">L’algorithme utilise une file FIFO (premier entré, premier sorti) pour parcourir le graphe. On insère d’abord le nœud origine src dans la file. Tant que cette file n’est pas vide, on récupère son 1er élément, (notons le u), on parcourt la liste d’adjacence de u; à chaque nœud v rencontré, si le nœud n’ a pas encore été découvert, on le marque comme découvert, sinon on passe,&nbsp; on indique ensuite que le prédécesseur ou parent de v dans le graphe est u et on calcule la distance qui mène de src à v en ajoutant 1 à la distance qui mène de src à u.</p>
+<p style="text-align:justify;">Pour calculer les distances, on stocke en parallèle un tableau <em>dist[N]</em> (N, le nombre de noeuds du graphe), qui pour chaque nœud u stocke la distance menant de la source à u. Au début de l’algorithme, on donnera à la distance de chaque noeud, la valeur «&nbsp;<em>infini</em>«&nbsp;. Ainsi, si après le parcours en largeur, la distance d’un nœud est égale à «&nbsp;<em>infini</em>«&nbsp;, cela veut dire que ce nœud n’est pas accessible depuis le noeud origine.</p>
+<p style="text-align:justify;">De même, on aura un tableau <em>parent[N]</em>, qui pour chaque nœud u du graphe stocke son parent. Ici aussi, au début la valeur de <em>parent[]</em> pour chaque nœud vaut NIL; donc à la fin du parcours, un nœud dont le parent vaut NIL n’est pas accessible depuis l’origine.</p>
+<p style="text-align:justify;">Pour marquer qu’un nœud a été découvert, à chaque fois que l’algorithme rencontre pour la première fois un nœud, il le colorie en gris et le colorie en noir, une fois qu’il a fini de traiter sa liste d’adjacence et au départ, tous les nœuds sont blancs. Pour la couleur, on gèrera aussi simplement un tableau qui indique la couleur de chaque nœud.</p>
+<p style="text-align:justify;">Bon assez de blablabla, on passe au code, vous comprendrez mieux.</p>
+<p style="text-align:justify;"><strong>Code</strong></p>
+<div><div id="highlighter_865081" class="syntaxhighlighter nogutter  cpp"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp preprocessor">#include&lt;iostream&gt;</code></div><div class="line number2 index1 alt1"><code class="cpp preprocessor">#include&lt;vector&gt;</code></div><div class="line number3 index2 alt2"><code class="cpp preprocessor">#include&lt;list&gt;</code></div><div class="line number4 index3 alt1"><code class="cpp preprocessor">#include&lt;queue&gt;</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div><div class="line number7 index6 alt2">&nbsp;</div><div class="line number8 index7 alt1"><code class="cpp keyword bold">const</code> <code class="cpp color1 bold">int</code> <code class="cpp plain">INF = 2147483647; </code><code class="cpp comments">// Notre valeur "infini"</code></div><div class="line number9 index8 alt2"><code class="cpp keyword bold">const</code> <code class="cpp color1 bold">int</code> <code class="cpp plain">NIL = -1; </code><code class="cpp comments">// On choisit -1 comme valeur pour NIL</code></div><div class="line number10 index9 alt1"><code class="cpp keyword bold">const</code> <code class="cpp color1 bold">int</code> <code class="cpp plain">N = 10;</code></div><div class="line number11 index10 alt2"><code class="cpp keyword bold">const</code> <code class="cpp color1 bold">int</code> <code class="cpp plain">MAX = N + 1;</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="cpp keyword bold">enum</code> <code class="cpp plain">{WHITE, GREY, BLACK}; </code><code class="cpp comments">// Une énumération pour les couleurs BLANC, GRIS et NOIR</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="cpp plain">vector&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt; color(MAX); </code><code class="cpp comments">// Tableau pour marquer les couleurs</code></div><div class="line number16 index15 alt1"><code class="cpp plain">vector&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt; dist(MAX); </code><code class="cpp comments">// Tableau pour calculer les distances</code></div><div class="line number17 index16 alt2"><code class="cpp plain">vector&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt; parent(MAX); </code><code class="cpp comments">// Tableau pour marquer les parents</code></div><div class="line number18 index17 alt1">&nbsp;</div><div class="line number19 index18 alt2"><code class="cpp keyword bold">void</code> <code class="cpp plain">bfs(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">src, list&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt; graph[])</code></div><div class="line number20 index19 alt1"><code class="cpp plain">{</code></div><div class="line number21 index20 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">/* Pour commencer */</code></div><div class="line number22 index21 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">for</code><code class="cpp plain">(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">i = 1; i &lt;= N; ++i)</code></div><div class="line number23 index22 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number24 index23 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">color[i] = WHITE; </code><code class="cpp comments">// On colorie tous les noeuds en blanc</code></div><div class="line number25 index24 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">dist[i] = INF; </code><code class="cpp comments">// On affecte INF à la distance de chaque noeud</code></div><div class="line number26 index25 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">parent[i] = NIL; </code><code class="cpp comments">// On affecte NIL au parent de chaque noeud</code></div><div class="line number27 index26 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number28 index27 alt1">&nbsp;</div><div class="line number29 index28 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">color[src] = GREY; </code><code class="cpp comments">// On colorie la source en gris, on vient de le découvrir</code></div><div class="line number30 index29 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">dist[src] = 0; </code><code class="cpp comments">// Puisque c'est le 1er noeud découvert, sa distance vaut 0</code></div><div class="line number31 index30 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">parent[src] = NIL; </code><code class="cpp comments">// La source n'a pas de parent</code></div><div class="line number32 index31 alt1">&nbsp;</div><div class="line number33 index32 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">queue&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt; q;</code></div><div class="line number34 index33 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">q.push(src); </code><code class="cpp comments">// On y insère notre source</code></div><div class="line number35 index34 alt2">&nbsp;</div><div class="line number36 index35 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">while</code><code class="cpp plain">(!q.empty())</code></div><div class="line number37 index36 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number38 index37 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp color1 bold">int</code> <code class="cpp plain">u = q.front(); </code><code class="cpp comments">// on récupère le noeud en tête de la queue</code></div><div class="line number39 index38 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">q.pop(); </code><code class="cpp comments">// On défile la queue</code></div><div class="line number40 index39 alt1">&nbsp;</div><div class="line number41 index40 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">/* On parcourt la liste d'adjacence de u */</code></div><div class="line number42 index41 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">for</code><code class="cpp plain">(list&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt;::iterator it = graph[u].begin(); it != graph[u].end(); ++it)</code></div><div class="line number43 index42 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number44 index43 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp color1 bold">int</code> <code class="cpp plain">v = *it; </code><code class="cpp comments">// Simple convénience, on va utiliser v au lieu de *it</code></div><div class="line number45 index44 alt2">&nbsp;</div><div class="line number46 index45 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code><code class="cpp plain">(color[v] == WHITE) </code><code class="cpp comments">// Si c'est la première fois qu'on découvre v</code></div><div class="line number47 index46 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number48 index47 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">dist[v] = dist[u] + 1; </code><code class="cpp comments">// On calcule sa distance</code></div><div class="line number49 index48 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">color[v] = GREY; </code><code class="cpp comments">// On le marque comme déjà découvert</code></div><div class="line number50 index49 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">parent[v] = u; </code><code class="cpp comments">// On affecte à son parent u</code></div><div class="line number51 index50 alt2">&nbsp;</div><div class="line number52 index51 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">q.push(v); </code><code class="cpp comments">// On insère v à la tête de la file</code></div><div class="line number53 index52 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number54 index53 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number55 index54 alt2">&nbsp;</div><div class="line number56 index55 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">color[u] = BLACK;</code></div><div class="line number57 index56 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number58 index57 alt1"><code class="cpp plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align:justify;">Et voilà. Je crois que le code parle de lui même. Comme toujours, on se base sur les types prédéfinis de la <a title="STL" href="http://cplusplus.com/reference/stl/" target="_blank">STL</a>, notamment les types <a title="vector" href="http://cplusplus.com/reference/stl/vector/" target="_blank">vector</a> et <a title="queue" href="http://cplusplus.com/reference/stl/queue/" target="_blank">queue</a>. Si vous ne connaissez pas la STL, je vous invite à jeter un coup d’oeil sur les liens précédents.</p>
+<p style="text-align:justify;">Après le parcours en largeur, on peut se servir du tableau <em>parent[]</em> pour retracer le chemin qui mène du noeud src vers n’importe quel autre noeud qui lui est accessible avec cette fonction</p>
+<div><div id="highlighter_927531" class="syntaxhighlighter nogutter  cpp"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp keyword bold">void</code> <code class="cpp plain">print_path(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">src, </code><code class="cpp color1 bold">int</code> <code class="cpp plain">dest)</code></div><div class="line number2 index1 alt1"><code class="cpp plain">{</code></div><div class="line number3 index2 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code><code class="cpp plain">(src == dest)</code></div><div class="line number4 index3 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp functions bold">printf</code><code class="cpp plain">(</code><code class="cpp string">"%d"</code><code class="cpp plain">, src);</code></div><div class="line number5 index4 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">else</code> <code class="cpp keyword bold">if</code><code class="cpp plain">(parent[dest] == NIL)</code></div><div class="line number6 index5 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp functions bold">printf</code><code class="cpp plain">(</code><code class="cpp string">"Il n'y a pas de chemin de %d vers %d\n"</code><code class="cpp plain">, src, dest);</code></div><div class="line number7 index6 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">else</code></div><div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number9 index8 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">print_path(src, parent[dest]);</code></div><div class="line number10 index9 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp functions bold">printf</code><code class="cpp plain">(</code><code class="cpp string">" %d"</code><code class="cpp plain">, dest);</code></div><div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number12 index11 alt1"><code class="cpp plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align:justify;"><strong>Exemple</strong></p>
+<p style="text-align:justify;">Nous allons exécuter un parcours en largeur à partir du noeud 1 sur le graphe ci-dessous et afficher tous les plus courts chemins menant de 1 à chacun des autres noeuds.</p>
+<p style="text-align:justify;"><a href="https://tfeysal.files.wordpress.com/2010/11/graphe2.png"><img class="aligncenter size-medium wp-image-190" title="graphe" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/graphe2.png" alt="" width="300" height="198" srcset="https://tfeysal.files.wordpress.com/2010/11/graphe2.png?w=300&amp;h=198 300w, https://tfeysal.files.wordpress.com/2010/11/graphe2.png?w=150&amp;h=99 150w, https://tfeysal.files.wordpress.com/2010/11/graphe2.png 333w" sizes="(max-width: 300px) 100vw, 300px"></a></p>
+<p style="text-align:justify;">Voici l’entrée qu’on devra fournir à notre programme. La première ligne contient le nombre n de connexions. Ensuite, il y a n lignes successives composées chacune de 2 entiers u et v tels que les nœuds u et v soient connectés dans le graphe.</p>
+<div><div id="highlighter_531337" class="syntaxhighlighter nogutter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">7</code></div><div class="line number2 index1 alt1"><code class="plain plain">1 2</code></div><div class="line number3 index2 alt2"><code class="plain plain">1 5</code></div><div class="line number4 index3 alt1"><code class="plain plain">2 5</code></div><div class="line number5 index4 alt2"><code class="plain plain">2 3</code></div><div class="line number6 index5 alt1"><code class="plain plain">3 4</code></div><div class="line number7 index6 alt2"><code class="plain plain">4 5</code></div><div class="line number8 index7 alt1"><code class="plain plain">4 6</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align:justify;">Voici le code</p>
+<div><div id="highlighter_409479" class="syntaxhighlighter nogutter  cpp"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp preprocessor">#include&lt;iostream&gt;</code></div><div class="line number2 index1 alt1"><code class="cpp preprocessor">#include&lt;vector&gt;</code></div><div class="line number3 index2 alt2"><code class="cpp preprocessor">#include&lt;list&gt;</code></div><div class="line number4 index3 alt1"><code class="cpp preprocessor">#include&lt;queue&gt;</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div><div class="line number7 index6 alt2">&nbsp;</div><div class="line number8 index7 alt1"><code class="cpp keyword bold">const</code> <code class="cpp color1 bold">int</code> <code class="cpp plain">INF = 2147483647;</code></div><div class="line number9 index8 alt2"><code class="cpp keyword bold">const</code> <code class="cpp color1 bold">int</code> <code class="cpp plain">NIL = -1;</code></div><div class="line number10 index9 alt1"><code class="cpp keyword bold">const</code> <code class="cpp color1 bold">int</code> <code class="cpp plain">N = 6;</code></div><div class="line number11 index10 alt2"><code class="cpp keyword bold">const</code> <code class="cpp color1 bold">int</code> <code class="cpp plain">MAX = N + 1;</code></div><div class="line number12 index11 alt1">&nbsp;</div><div class="line number13 index12 alt2"><code class="cpp keyword bold">enum</code> <code class="cpp plain">{WHITE, GREY, BLACK};</code></div><div class="line number14 index13 alt1">&nbsp;</div><div class="line number15 index14 alt2"><code class="cpp plain">vector&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt; color(MAX);</code></div><div class="line number16 index15 alt1"><code class="cpp plain">vector&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt; dist(MAX);</code></div><div class="line number17 index16 alt2"><code class="cpp plain">vector&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt; parent(MAX);</code></div><div class="line number18 index17 alt1">&nbsp;</div><div class="line number19 index18 alt2"><code class="cpp comments">/* Parcours en largeur */</code></div><div class="line number20 index19 alt1"><code class="cpp keyword bold">void</code> <code class="cpp plain">bfs(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">src, list&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt; graph[])</code></div><div class="line number21 index20 alt2"><code class="cpp plain">{</code></div><div class="line number22 index21 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">for</code><code class="cpp plain">(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">i = 1; i &lt;= N; ++i)</code></div><div class="line number23 index22 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number24 index23 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">color[i] = WHITE;</code></div><div class="line number25 index24 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">dist[i] = INF;</code></div><div class="line number26 index25 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">parent[i] = NIL;</code></div><div class="line number27 index26 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number28 index27 alt1">&nbsp;</div><div class="line number29 index28 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">color[src] = GREY;</code></div><div class="line number30 index29 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">dist[src] = 0;</code></div><div class="line number31 index30 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">parent[src] = NIL;</code></div><div class="line number32 index31 alt1">&nbsp;</div><div class="line number33 index32 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">queue&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt; q;</code></div><div class="line number34 index33 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">q.push(src);</code></div><div class="line number35 index34 alt2">&nbsp;</div><div class="line number36 index35 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">while</code><code class="cpp plain">(!q.empty())</code></div><div class="line number37 index36 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number38 index37 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp color1 bold">int</code> <code class="cpp plain">u = q.front();</code></div><div class="line number39 index38 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">q.pop();</code></div><div class="line number40 index39 alt1">&nbsp;</div><div class="line number41 index40 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">for</code><code class="cpp plain">(list&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt;::iterator it = graph[u].begin(); it != graph[u].end(); ++it)</code></div><div class="line number42 index41 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number43 index42 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp color1 bold">int</code> <code class="cpp plain">v = *it;</code></div><div class="line number44 index43 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code><code class="cpp plain">(color[v] == WHITE)</code></div><div class="line number45 index44 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number46 index45 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">color[v] = GREY;</code></div><div class="line number47 index46 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">dist[v] = dist[u] + 1;</code></div><div class="line number48 index47 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">parent[v] = u;</code></div><div class="line number49 index48 alt2">&nbsp;</div><div class="line number50 index49 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">q.push(v);</code></div><div class="line number51 index50 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number52 index51 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number53 index52 alt2">&nbsp;</div><div class="line number54 index53 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">color[u] = BLACK;</code></div><div class="line number55 index54 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number56 index55 alt1"><code class="cpp plain">}</code></div><div class="line number57 index56 alt2">&nbsp;</div><div class="line number58 index57 alt1"><code class="cpp comments">/* Affiche le chemin menant de src à dest */</code></div><div class="line number59 index58 alt2"><code class="cpp keyword bold">void</code> <code class="cpp plain">print_path(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">src, </code><code class="cpp color1 bold">int</code> <code class="cpp plain">dest)</code></div><div class="line number60 index59 alt1"><code class="cpp plain">{</code></div><div class="line number61 index60 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code><code class="cpp plain">(src == dest)</code></div><div class="line number62 index61 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp functions bold">printf</code><code class="cpp plain">(</code><code class="cpp string">"%d"</code><code class="cpp plain">, src);</code></div><div class="line number63 index62 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">else</code> <code class="cpp keyword bold">if</code><code class="cpp plain">(parent[dest] == NIL)</code></div><div class="line number64 index63 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp functions bold">printf</code><code class="cpp plain">(</code><code class="cpp string">"Il n'y a pas de chemin de %d vers %d"</code><code class="cpp plain">, src, dest);</code></div><div class="line number65 index64 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">else</code></div><div class="line number66 index65 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number67 index66 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">print_path(src, parent[dest]);</code></div><div class="line number68 index67 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp functions bold">printf</code><code class="cpp plain">(</code><code class="cpp string">" %d"</code><code class="cpp plain">, dest);</code></div><div class="line number69 index68 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number70 index69 alt1"><code class="cpp plain">}</code></div><div class="line number71 index70 alt2">&nbsp;</div><div class="line number72 index71 alt1"><code class="cpp color1 bold">int</code> <code class="cpp plain">main()</code></div><div class="line number73 index72 alt2"><code class="cpp plain">{</code></div><div class="line number74 index73 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp color1 bold">int</code> <code class="cpp plain">n = 0;</code></div><div class="line number75 index74 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp functions bold">scanf</code><code class="cpp plain">(</code><code class="cpp string">"%d"</code><code class="cpp plain">, &amp;n);</code></div><div class="line number76 index75 alt1">&nbsp;</div><div class="line number77 index76 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">list&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt; graph[MAX];</code></div><div class="line number78 index77 alt1">&nbsp;</div><div class="line number79 index78 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">while</code><code class="cpp plain">(n--)</code></div><div class="line number80 index79 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number81 index80 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp color1 bold">int</code> <code class="cpp plain">u = 0, v = 0;</code></div><div class="line number82 index81 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp functions bold">scanf</code><code class="cpp plain">(</code><code class="cpp string">"%d %d"</code><code class="cpp plain">, &amp;u, &amp;v);</code></div><div class="line number83 index82 alt2">&nbsp;</div><div class="line number84 index83 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">/* Puisque c'est un graphe non orienté, il faut indiquer que ... */</code></div><div class="line number85 index84 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">graph[u].push_front(v); </code><code class="cpp comments">// u est connecté à v ...</code></div><div class="line number86 index85 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">graph[v].push_front(u); </code><code class="cpp comments">// et que v aussi est connecté à u</code></div><div class="line number87 index86 alt2">&nbsp;</div><div class="line number88 index87 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number89 index88 alt2">&nbsp;</div><div class="line number90 index89 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp color1 bold">int</code> <code class="cpp plain">src = 1;</code></div><div class="line number91 index90 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">bfs(src, graph); </code><code class="cpp comments">// On fait le parcours en largeur</code></div><div class="line number92 index91 alt1">&nbsp;</div><div class="line number93 index92 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">/* Il ne nous reste plus qu'à afficher le chemin menant à chaque noeud */</code></div><div class="line number94 index93 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">for</code><code class="cpp plain">(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">i = 2; i &lt;= N; ++i)</code></div><div class="line number95 index94 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div><div class="line number96 index95 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp functions bold">printf</code><code class="cpp plain">(</code><code class="cpp string">"Chemin de %d vers %d : "</code><code class="cpp plain">, src, i);</code></div><div class="line number97 index96 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">print_path(src, i);</code></div><div class="line number98 index97 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp functions bold">printf</code><code class="cpp plain">(</code><code class="cpp string">"\n"</code><code class="cpp plain">);</code></div><div class="line number99 index98 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div><div class="line number100 index99 alt1">&nbsp;</div><div class="line number101 index100 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">return</code> <code class="cpp plain">0;</code></div><div class="line number102 index101 alt1"><code class="cpp plain">}</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align:justify;">Ce qui nous donne comme résultat</p>
+<div><div id="highlighter_202049" class="syntaxhighlighter nogutter  bash"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="bash plain">Chemin de 1 vers 2 : 1 2</code></div><div class="line number2 index1 alt1"><code class="bash plain">Chemin de 1 vers 3 : 1 2 3</code></div><div class="line number3 index2 alt2"><code class="bash plain">Chemin de 1 vers 4 : 1 5 4</code></div><div class="line number4 index3 alt1"><code class="bash plain">Chemin de 1 vers 5 : 1 5</code></div><div class="line number5 index4 alt2"><code class="bash plain">Chemin de 1 vers 6 : 1 5 4 6</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align:justify;"><strong>Au fait, les graphes, à quoi çà sert ?</strong></p>
+<p style="text-align:justify;">Les graphes ont beaucoup d’applications. Par exemple, en informatique, les réseaux d’ordinateurs peuvent être modélisés comme des graphes, et on appliquera des algorithmes de plus court chemin pour trouver quel est le meilleur chemin pour envoyer un paquet d’un ordinateur à un autre. On peut aussi considérer la structure d’un site web comme un graphe; les pages du site constituent les nœuds et 2 pages sont connectées si l’une contient un lien vers l’autre.</p>
+<p style="text-align:justify;">Similairement, supposons qu’on ait un jeu de mots où on nous fournit un dictionnaire de mots et un mot de départ et un mot de fin. Nous devons procéder à des transformations du mot de départ pour aboutir au mot de fin en ne changeant qu’une seule lettre à chaque étape.</p>
+<p style="text-align:justify;">Par exemple, on a un dictionnaire composé des mots suivants</p>
+<div><div id="highlighter_467544" class="syntaxhighlighter nogutter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">map</code></div><div class="line number2 index1 alt1"><code class="plain plain">maple</code></div><div class="line number3 index2 alt2"><code class="plain plain">may</code></div><div class="line number4 index3 alt1"><code class="plain plain">slice</code></div><div class="line number5 index4 alt2"><code class="plain plain">slick</code></div><div class="line number6 index5 alt1"><code class="plain plain">spice</code></div><div class="line number7 index6 alt2"><code class="plain plain">stick</code></div><div class="line number8 index7 alt1"><code class="plain plain">stock</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align:justify;">À partir du mot <em>spice</em>, on veut obtenir le mot <em>stock</em>, on peut y arriver comme ceci en 4 coups</p>
+<div><div id="highlighter_993770" class="syntaxhighlighter nogutter  plain"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain plain">spice -&gt; slice -&gt; slick -&gt; stick -&gt; stock</code></div></div></td></tr></tbody></table></div></div>
+<p style="text-align:justify;">D’abord, on change le <strong>p</strong> en <strong>l</strong>, le <strong>e</strong> en <strong>k</strong>, le <strong>l</strong> en <strong>t</strong> et le <strong>i</strong> en <strong>o</strong>.</p>
+<p style="text-align:justify;">Maintenant, on nous demande d’écrire un programme qui en fonction d’un dictionnaire de mots et de 2 mots résout ce problème en un minimum de coups et qui affiche le processus comme précédemment.</p>
+<p style="text-align:justify;">Ce problème peut sembler difficile au premier abord mais il suffit de remarquer qu’il s’agit d’un problème de graphes. Les mots représentent les nœuds et 2 mots sont connectés s’il n’y a qu’une seule lettre qui les différencie. Ensuite, il suffit de faire un parcours en largeur à partir du mot de départ pour trouver le chemin menant au mot de fin et on récupère le nombre de coups dans le tableau dist[]. Aussi simple que çà.</p>
+<p style="text-align:justify;">Il s’agit du problème <a title="429" href="http://uva.onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=24&amp;page=show_problem&amp;problem=370" target="_blank">429</a> du site <a title="UVa Online Judge" href="http://uva.onlinejudge.org/" target="_blank">UVa Online Judge</a>. Je vous laisse vous y atteler, et si vous avez un problème, n’oubliez pas de laisser un commentaire. Vous trouverez plein d’autres problèmes de ce genre sur le site.</p>
+<p style="text-align:justify;">À bientôt pour la suite.</p>
+		<div class="wpcnt">
+			<div class="wpa wpmrec">
+				<a class="wpa-about" href="https://wordpress.com/about-these-ads/" rel="nofollow">Concernant ces publicités</a>
+				<div class="u">
+					<script type="text/javascript">
+					(function(g){g.__ATA.initAd({sectionId:26942, width:300, height:250});})(window);
+					</script>
+				</div>
+			</div>
+		</div><div id="jp-post-flair" class="sharedaddy sd-rating-enabled sd-like-enabled"><div class="sd-block sd-rating"><h3 class="sd-title">Évaluez ceci :</h3><div class="pd-rating" id="pd_rating_holder_2514839_post_131" style="display: inline-block;"><div class="rating-icons" id="pd_rate_2514839_post_131" style="float:left;"><div class="rating-star-icon" onmouseout="PDRTJS_2514839_post_131.rebuild();" onclick="PDRTJS_2514839_post_131.rate(1);" onmouseover="PDRTJS_2514839_post_131.hover(1);" id="PDRTJS_2514839_post_131_stars_1" style="background-size: 32px 48px !important; cursor: pointer; width: 16px; height: 16px; line-height: 16px; background: url(https://polldaddy.com/images/ratings/star-yellow-sml.png) top left; float: left; padding: 0px; margin: 0px; margin-right: 1px;">&nbsp;</div><div class="rating-star-icon" onmouseout="PDRTJS_2514839_post_131.rebuild();" onclick="PDRTJS_2514839_post_131.rate(2);" onmouseover="PDRTJS_2514839_post_131.hover(2);" id="PDRTJS_2514839_post_131_stars_2" style="background-size: 32px 48px !important; cursor: pointer; width: 16px; height: 16px; line-height: 16px; background: url(https://polldaddy.com/images/ratings/star-yellow-sml.png) top left; float: left; padding: 0px; margin: 0px; margin-right: 1px;">&nbsp;</div><div class="rating-star-icon" onmouseout="PDRTJS_2514839_post_131.rebuild();" onclick="PDRTJS_2514839_post_131.rate(3);" onmouseover="PDRTJS_2514839_post_131.hover(3);" id="PDRTJS_2514839_post_131_stars_3" style="background-size: 32px 48px !important; cursor: pointer; width: 16px; height: 16px; line-height: 16px; background: url(https://polldaddy.com/images/ratings/star-yellow-sml.png) top left; float: left; padding: 0px; margin: 0px; margin-right: 1px;">&nbsp;</div><div class="rating-star-icon" onmouseout="PDRTJS_2514839_post_131.rebuild();" onclick="PDRTJS_2514839_post_131.rate(4);" onmouseover="PDRTJS_2514839_post_131.hover(4);" id="PDRTJS_2514839_post_131_stars_4" style="background-size: 32px 48px !important; cursor: pointer; width: 16px; height: 16px; line-height: 16px; background: url(https://polldaddy.com/images/ratings/star-yellow-sml.png) top left; float: left; padding: 0px; margin: 0px; margin-right: 1px;">&nbsp;</div><div class="rating-star-icon" onmouseout="PDRTJS_2514839_post_131.rebuild();" onclick="PDRTJS_2514839_post_131.rate(5);" onmouseover="PDRTJS_2514839_post_131.hover(5);" id="PDRTJS_2514839_post_131_stars_5" style="background-size: 32px 48px !important; cursor: pointer; width: 16px; height: 16px; line-height: 16px; background: url(https://polldaddy.com/images/ratings/star-yellow-sml.png) center left; float: left; padding: 0px; margin: 0px; margin-right: 1px;">&nbsp;</div></div><span style="float:left;">&nbsp;</span><div id="rating_info_2514839_post_131" style="display:block;float:left;background:url(https://polldaddy.com/images/ratings/info.png) no-repeat 3px 2px;width:16px;height:16px;cursor:pointer; null " onclick="javascript:PDRTJS_2514839_post_131.togglePopup();return false;"><span style="display:none;">i</span></div><div class="pd_popup_holder" id="pd_popup_holder_2514839_post_131">&nbsp;</div><div class="rating-msg" id="PDRTJS_2514839_post_131_msg" style="float:left; padding-left: 5px; text-align: left; font:normal normal /16px ; color: #;">3 Votes</div><p style="padding: 0px; margin: 0px; clear: both;"></p></div></div><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-15149403-131-58356db5e3957" data-src="//widgets.wp.com/likes/#blog_id=15149403&amp;post_id=131&amp;origin=tfeysal.wordpress.com&amp;obj_id=15149403-131-58356db5e3957" data-name="like-post-frame-15149403-131-58356db5e3957"><h3 class="sd-title">J'aime&nbsp;:</h3><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>J'aime</span></span> <span class="loading">chargement…</span></div><iframe class="post-likes-widget jetpack-likes-widget" name="like-post-frame-15149403-131-58356db5e3957" height="55px" width="100%" frameborder="0" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/saved_resource.html"></iframe><span class="sd-text-color"></span><a class="sd-link-color"></a></div></div>						<div class="fixed"></div>
+		</div>
+		<div class="under">
+			<span><span class="categories" deluminate_imagetype="gif">Catégories&nbsp;:</span><a href="https://tfeysal.wordpress.com/category/algorithmes/" rel="category tag">Algorithmes</a>, <a href="https://tfeysal.wordpress.com/category/problemes/" rel="category tag">Problèmes</a>, <a href="https://tfeysal.wordpress.com/category/tutos/" rel="category tag">Tutos</a></span>
+			<span><span class="tags" deluminate_imagetype="gif">Étiquettes&nbsp;: </span><a href="https://tfeysal.wordpress.com/tag/bfs/" rel="tag">bfs</a>, <a href="https://tfeysal.wordpress.com/tag/breadth-first-search/" rel="tag">breadth first search</a>, <a href="https://tfeysal.wordpress.com/tag/graph/" rel="tag">graph</a>, <a href="https://tfeysal.wordpress.com/tag/graphes/" rel="tag">graphes</a>, <a href="https://tfeysal.wordpress.com/tag/parcours-en-largeur/" rel="tag">parcours en largeur</a></span>
+		</div>
+		<div class="fixed"></div>
+	</div>
+
+	
+
+<script type="text/javascript" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/comment.js"></script>
+
+<div id="comments">
+
+	
+		<div id="cmtswitcher">
+										<a id="commenttab" class="curtab" href="javascript:void(0);" onclick="MGJS.switchTab(&#39;thecomments,commentnavi&#39;, &#39;thetrackbacks&#39;, &#39;commenttab&#39;, &#39;curtab&#39;, &#39;trackbacktab&#39;, &#39;tab&#39;);">
+					Commentaires (2)				</a>
+				<a id="trackbacktab" class="tab" href="javascript:void(0);" onclick="MGJS.switchTab(&#39;thetrackbacks&#39;, &#39;thecomments,commentnavi&#39;, &#39;trackbacktab&#39;, &#39;curtab&#39;, &#39;commenttab&#39;, &#39;tab&#39;);">
+					Trackbacks (1)				</a>
+			
+							<span class="addcomment" deluminate_imagetype="gif"><a href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/#respond">Laisser un commentaire</a></span>
+			
+							<span class="addtrackback" deluminate_imagetype="gif"><a href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/trackback/">Rétrolien</a></span>
+					</div><!-- #cmtswitcher -->
+
+		<div id="commentlist">
+
+			<!-- Comments -->
+			<ol id="thecomments">
+								<li id="comment-19" class="comment even thread-even depth-1 highlander-comment">
+		<div class="author">
+			<div class="pic" deluminate_imagetype="png">
+				<img alt="" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/b88da97ef61a3464c01aa2c781470712" class="avatar avatar-32 grav-hashed grav-hijack" height="32" width="32" id="grav-b88da97ef61a3464c01aa2c781470712-0">			</div><!-- .pic -->
+			<div class="name">
+				agogue			</div><!-- .name -->
+		</div>
+
+		<div class="info">
+			<div class="date">
+				23 décembre 2010 à 08:17			</div><!-- .date -->
+			<div class="act">
+				<a rel="nofollow" class="comment-reply-link" href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/?replytocom=19#respond" onclick="return addComment.moveForm( &quot;comment-19&quot;, &quot;19&quot;, &quot;respond&quot;, &quot;131&quot; )" aria-label="Répondre à agogue">Répondre</a>							</div><!-- .act -->
+			<div class="content">
+				
+				<div id="commentbody-19">
+					<p>Bon travail!</p>
+				</div><!-- #commentbody-ID -->
+			</div><!-- .comment -->
+			<div class="fixed"></div>
+		</div><!-- .info -->
+		<div class="fixed"></div>
+<ul class="children">
+	<li id="comment-20" class="comment byuser comment-author-feysal21 bypostauthor odd alt depth-2 highlander-comment">
+		<div class="author">
+			<div class="pic" deluminate_imagetype="png">
+				<img alt="" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/e0c74e978b26d45ac8f83bb1c94730bd" class="avatar avatar-32 grav-hashed grav-hijack" height="32" width="32" id="grav-e0c74e978b26d45ac8f83bb1c94730bd-0">			</div><!-- .pic -->
+			<div class="name">
+				<a href="https://tfeysal.wordpress.com/" rel="external nofollow" class="url">Faiçal</a>			</div><!-- .name -->
+		</div>
+
+		<div class="info">
+			<div class="date">
+				23 décembre 2010 à 15:09			</div><!-- .date -->
+			<div class="act">
+				<a rel="nofollow" class="comment-reply-link" href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/?replytocom=20#respond" onclick="return addComment.moveForm( &quot;comment-20&quot;, &quot;20&quot;, &quot;respond&quot;, &quot;131&quot; )" aria-label="Répondre à Faiçal">Répondre</a>							</div><!-- .act -->
+			<div class="content">
+				
+				<div id="commentbody-20">
+					<p>Merci</p>
+				</div><!-- #commentbody-ID -->
+			</div><!-- .comment -->
+			<div class="fixed"></div>
+		</div><!-- .info -->
+		<div class="fixed"></div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+						</ol><!-- #thecomments -->
+
+			
+			<!-- Trackbacks and Pingbacks -->
+			<ol id="thetrackbacks">
+										<li id="comment-15" class="trackback even thread-even depth-1 trackback highlander-comment" deluminate_imagetype="gif">
+		<div class="date">
+			21 novembre 2010 à 21:40		</div><!-- .date -->
+		<div class="act">
+					</div><!-- .act -->
+		<div class="title" deluminate_imagetype="gif">
+			<a href="http://blogasty.com/billet/403542-via-feysal" rel="external nofollow" class="url">Feysal sur Blogasty</a>		</div><!-- .title -->
+</li><!-- #comment-## -->
+							</ol><!-- #thetrackbacks -->
+
+		</div><!-- #commentlist -->
+	
+
+				<div id="respond" class="comment-respond js">
+			<h3 id="reply-title" class="comment-reply-title">Laisser un commentaire <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/#respond" style="display:none;">Annuler la réponse.</a></small></h3>				<form action="https://tfeysal.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+					<input type="hidden" id="highlander_comment_nonce" name="highlander_comment_nonce" value="cb4275f7dc"><input type="hidden" name="_wp_http_referer" value="/2010/11/21/algorithmes-pour-les-graphes-1/">
+<input type="hidden" name="hc_post_as" id="hc_post_as" value="guest">
+
+<div class="comment-form-field comment-textarea">
+	
+	<div id="comment-form-comment"><textarea tabindex="-1" style="position: absolute; top: -999px; left: 0px; right: auto; bottom: auto; border: 0px; padding: 0px; box-sizing: content-box; word-wrap: break-word; overflow: hidden; transition: none; height: 0px !important; min-height: 0px !important; font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif; font-size: 14px; font-weight: 400; font-style: normal; letter-spacing: 0px; text-transform: none; text-decoration: none; word-spacing: 0px; text-indent: 0px; line-height: normal; width: 563px;" class="autosizejs "></textarea><textarea id="comment" name="comment" title="Entrez votre commentaire..." placeholder="Entrez votre commentaire..." style="height: 36px; overflow: hidden; word-wrap: break-word; resize: none;"></textarea></div>
+</div>
+
+<div id="comment-form-identity" style="display: none;">
+
+	<div id="comment-form-nascar">
+		<p>Entrez vos coordonnées ci-dessous ou cliquez sur une icône pour vous connecter:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/#comment-form-guest" id="postas-guest" title="Visiteur">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com" deluminate_imagetype="png">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter" deluminate_imagetype="png">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook" deluminate_imagetype="png">
+					<span></span>
+				</a>
+			</li>
+			<li>
+			<iframe id="googleplus-sign-in" name="googleplus-sign-in" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/saved_resource(6).html" width="24" height="24" scrolling="no" allowtransparency="true" seamless="seamless" frameborder="0"></iframe>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/ad516503a11cd5ca435acc9bb6523536" alt="Gravatar" width="25" class="no-grav">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Adresse de messagerie <span class="required">(obligatoire)</span> <span class="nopublish">(adresse strictement confidentielle)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Nom <span class="required">(obligatoire)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Site web</label>
+					<div class="comment-form-input"><input id="url" name="url" type="url" value=""></div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/ad516503a11cd5ca435acc9bb6523536" alt="Logo WordPress.com" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="">
+				<p class="comment-form-posting-as pa-wordpress" deluminate_imagetype="png"><strong></strong> Vous commentez à l'aide de votre compte WordPress.com. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;wordpress&#39; );">Déconnexion</a>&nbsp;/&nbsp;<a href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Changer</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/ad516503a11cd5ca435acc9bb6523536" alt="Image Twitter" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="">
+				<p class="comment-form-posting-as pa-twitter" deluminate_imagetype="png"><strong></strong> Vous commentez à l'aide de votre compte Twitter. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;twitter&#39; );">Déconnexion</a>&nbsp;/&nbsp;<a href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Changer</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/ad516503a11cd5ca435acc9bb6523536" alt="Photo Facebook" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="">
+				<p class="comment-form-posting-as pa-facebook" deluminate_imagetype="png"><strong></strong> Vous commentez à l'aide de votre compte Facebook. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;facebook&#39; );">Déconnexion</a>&nbsp;/&nbsp;<a href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Changer</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-googleplus" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/ad516503a11cd5ca435acc9bb6523536" alt="Photo Google+" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="googleplus_avatar" id="googleplus-avatar" class="comment-meta-googleplus" value="">
+				<input type="hidden" name="googleplus_user_id" id="googleplus-user_id" class="comment-meta-googleplus" value="">
+				<input type="hidden" name="googleplus_access_token" id="googleplus-access_token" class="comment-meta-googleplus" value="">
+				<p class="comment-form-posting-as pa-googleplus" deluminate_imagetype="png"><strong></strong> Vous commentez à l'aide de votre compte Google+. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;googleplus&#39; );">Déconnexion</a>&nbsp;/&nbsp;<a href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Changer</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Annuler</a></div>
+		<p deluminate_imagetype="gif">Connexion à %s</p>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div id="comment-form-subscribe" style="display: none;">
+	<p class="comment-subscription-form"><input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Avertissez-moi par email des nouveaux commentaires.</label></p></div>
+
+
+
+
+<p class="form-submit" style="display: none;"><input name="submit" type="submit" id="comment-submit" class="submit" value="Laisser un commentaire" deluminate_imagetype="gif"> <input type="hidden" name="comment_post_ID" value="131" id="comment_post_ID" deluminate_imagetype="gif">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0" deluminate_imagetype="gif">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="0aec611bcc"></p>
+<input type="hidden" name="genseq" value="1479896501">
+<p style="display: none;"></p>				<input type="hidden" id="ak_js" name="ak_js" value="1479896503456"></form>
+					</div><!-- #respond -->
+		<div style="clear: both"></div>
+</div><!-- #comments -->
+
+	<div id="postnavi">
+		<span class="prev"><a href="https://tfeysal.wordpress.com/2011/01/10/programmer-un-tetris-en-c-partie-1/" rel="next" deluminate_imagetype="gif">Programmer un Tetris en C++ : Partie&nbsp;1</a></span>
+		<span class="next"><a href="https://tfeysal.wordpress.com/2010/08/13/la-notation-o-pour-les-nuls/" rel="prev" deluminate_imagetype="gif">La notation O pour les&nbsp;nuls</a></span>
+		<div class="fixed"></div>
+	</div>
+
+
+	</div>
+	<!-- main END -->
+
+	
+<!-- sidebar START -->
+<div id="sidebar" deluminate_imagetype="gif">
+
+<!-- sidebar north START -->
+<div id="northsidebar" class="sidebar">
+
+	<!-- feeds -->
+	<div class="widget widget_feeds" deluminate_imagetype="png">
+		<div class="content">
+			<div id="subscribe-feeds"><a rel="external nofollow" id="feedrss" title="Subscribe to this blog..." href="https://tfeysal.wordpress.com/feed/" deluminate_imagetype="gif" class=" "><abbr title="Really Simple Syndication">RSS</abbr> feed</a><ul id="feed_readers" style="visibility: hidden; display: block; left: 839px; top: 186px;"><li id="google_reader"><a rel="external nofollow" class="reader" title="Subscribe with Google" href="http://fusion.google.com/add?feedurl=https://tfeysal.wordpress.com/feed/"><span deluminate_imagetype="gif">Google</span></a></li><li id="youdao_reader"><a rel="external nofollow" class="reader" title="Subscribe with Youdao" href="http://reader.youdao.com/#url=https://tfeysal.wordpress.com/feed/"><span deluminate_imagetype="gif">Youdao</span></a></li><li id="xianguo_reader"><a rel="external nofollow" class="reader" title="Subscribe with Xian Guo" href="http://www.xianguo.com/subscribe.php?url=https://tfeysal.wordpress.com/feed/"><span deluminate_imagetype="gif">Xian Guo</span></a></li><li id="zhuaxia_reader"><a rel="external nofollow" class="reader" title="Subscribe with Zhua Xia" href="http://www.zhuaxia.com/add_channel.php?url=https://tfeysal.wordpress.com/feed/"><span deluminate_imagetype="gif">Zhua Xia</span></a></li><li id="yahoo_reader"><a rel="external nofollow" class="reader" title="Subscribe with My Yahoo!" href="http://add.my.yahoo.com/rss?url=https://tfeysal.wordpress.com/feed/"><span deluminate_imagetype="gif">My Yahoo!</span></a></li><li id="newsgator_reader"><a rel="external nofollow" class="reader" title="Subscribe with newsgator" href="http://www.newsgator.com/ngs/subscriber/subfext.aspx?url=https://tfeysal.wordpress.com/feed/"><span deluminate_imagetype="gif">newsgator</span></a></li><li id="bloglines_reader"><a rel="external nofollow" class="reader" title="Subscribe with Bloglines" href="http://www.bloglines.com/sub/https://tfeysal.wordpress.com/feed/"><span deluminate_imagetype="gif">Bloglines</span></a></li><li id="inezha_reader"><a rel="external nofollow" class="reader last" title="Subscribe with iNezha" href="http://inezha.com/add?url=https://tfeysal.wordpress.com/feed/"><span deluminate_imagetype="gif">iNezha</span></a></li></ul></div>
+
+			<!-- twitter -->
+			
+			<div class="fixed"></div>
+		</div>
+	</div>
+
+	<!-- showcase -->
+	
+
+	<!-- posts -->
+	
+	<div class="widget" deluminate_imagetype="png">
+		<h3>Articles récents</h3>
+		<ul>
+			<li deluminate_imagetype="gif"><a href="https://tfeysal.wordpress.com/2011/01/10/programmer-un-tetris-en-c-partie-1/">Programmer un Tetris en C++ : Partie&nbsp;1</a></li><li deluminate_imagetype="gif"><a href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/">Algorithmes pour les graphes (Partie&nbsp;1)</a></li><li deluminate_imagetype="gif"><a href="https://tfeysal.wordpress.com/2010/08/13/la-notation-o-pour-les-nuls/">La notation O pour les&nbsp;nuls</a></li><li deluminate_imagetype="gif"><a href="https://tfeysal.wordpress.com/2010/08/11/uva-probleme-127/">UVa 127 : «&nbsp;Accordian&nbsp;» Patience</a></li>		</ul>
+	</div>
+
+	<!-- tag cloud -->
+	
+
+
+		<!-- categories -->
+		<div class="widget widget_categories" deluminate_imagetype="png">
+			<h3>Catégories</h3>
+			<ul>
+					<li class="cat-item cat-item-4111101" deluminate_imagetype="gif"><a href="https://tfeysal.wordpress.com/category/algorithmes/">Algorithmes</a>
+</li>
+	<li class="cat-item cat-item-16081" deluminate_imagetype="gif"><a href="https://tfeysal.wordpress.com/category/jeux/">Jeux</a>
+</li>
+	<li class="cat-item cat-item-110424" deluminate_imagetype="gif"><a href="https://tfeysal.wordpress.com/category/problemes/">Problèmes</a>
+</li>
+	<li class="cat-item cat-item-230863" deluminate_imagetype="gif"><a href="https://tfeysal.wordpress.com/category/tutos/">Tutos</a>
+</li>
+			</ul>
+		</div>
+
+
+		<!-- blogroll -->
+		<div class="widget widget_links" deluminate_imagetype="png">
+			<h3>Liens</h3>
+			<ul>
+				<li deluminate_imagetype="gif"><a href="http://www.algorithmist.com/index.php/Main_Page" title="Site expliquant beaucoup d’algorithmes classiques et des méthodes de résolution de problèmes" target="_blank">Algorithmist</a></li>
+<li deluminate_imagetype="gif"><a href="http://www.developpez.com/" title="Portail francophone dédié à l’informatique avec des cours, des forums, …" target="_blank">Developpez.com</a></li>
+<li deluminate_imagetype="gif"><a href="http://felix-halim.net/uva/hunting.php?id=70536" title="Mes statistiques sur UVa">Mes statistiques UVa</a></li>
+<li deluminate_imagetype="gif"><a href="http://www.siteduzero.com/" title="Site communautaire proposant des cours de programmation pour débutants" target="_blank">Site du Zéro</a></li>
+<li deluminate_imagetype="gif"><a href="http://www.spoj.pl/" title="Encore un autre site de problèmes à résoudre" target="_blank">SPOJ</a></li>
+<li deluminate_imagetype="gif"><a href="http://uva.onlinejudge.org/" title="Des centaines de problèmes algorithmiques à résoudres" target="_blank">UVa Online Judge</a></li>
+			</ul>
+		</div>
+
+
+	<!-- archives -->
+	<div class="widget" deluminate_imagetype="png">
+		<h3>Archives</h3>
+					<ul>
+					<li deluminate_imagetype="gif"><a href="https://tfeysal.wordpress.com/2011/01/">janvier 2011</a></li>
+	<li deluminate_imagetype="gif"><a href="https://tfeysal.wordpress.com/2010/11/">novembre 2010</a></li>
+	<li deluminate_imagetype="gif"><a href="https://tfeysal.wordpress.com/2010/08/">août 2010</a></li>
+			</ul>
+			</div>
+
+	<!-- meta -->
+	<div class="widget" deluminate_imagetype="png">
+		<h3>Méta</h3>
+		<ul>
+			<li deluminate_imagetype="gif"><a href="https://wordpress.com/start/fr?ref=wplogin">Inscription</a></li>			<li deluminate_imagetype="gif"><a href="https://tfeysal.wordpress.com/wp-login.php">Connexion</a></li>
+		</ul>
+	</div>
+	</div>
+</div>
+<!-- sidebar END -->
+	<div class="fixed"></div>
+</div>
+<!-- content END -->
+
+<!-- footer START -->
+<div id="footer" deluminate_imagetype="jpg">
+	<a id="gotop" href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/#" onclick="MGJS.goTop();return false;" deluminate_imagetype="gif">Haut</a>
+	<div id="themeinfo">
+		<a href="https://wordpress.com/?ref=footer_blog">Propulsé par WordPress.com.</a> 	</div>
+</div>
+<!-- footer END -->
+
+</div>
+<!-- container END -->
+</div>
+<!-- wrap END -->
+
+<!--  -->
+<script type="text/javascript" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/wpgroho.js"></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	<div class="grofile-hash-map-b88da97ef61a3464c01aa2c781470712">
+	</div>
+	<div class="grofile-hash-map-e0c74e978b26d45ac8f83bb1c94730bd">
+	</div>
+	</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Connexion\u2026","submittingText":"Publication d'un Commentaire\u2026","postCommentText":"Laisser un commentaire","connectingToText":"Connexion \u00e0 %s","commentingAsText":"%1$s: Vous commentez \u00e0 l'aide de votre compte %2$s.","logoutText":"Se d\u00e9connecter","loginText":"Se connecter","connectURL":"https:\/\/tfeysal.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/tfeysal.wordpress.com\/wp-login.php?action=logout&_wpnonce=93bb5dc00f","homeURL":"https:\/\/tfeysal.wordpress.com\/","postID":"131","gravDefault":"identicon","enterACommentError":"Entrez un commentaire","enterEmailError":"Veuillez entrer votre adresse mail","invalidEmailError":"Adresse email invalide","enterAuthorError":"Veuillez entrer votre nom","gravatarFromEmail":"L\u2019image s\u2019affiche lorsque vous postez un commentaire. Cliquez pour personnaliser.","logInToExternalAccount":"Connectez-vous pour utiliser les informations li\u00e9es \u00e0 un de ces comptes:","change":"Changer","changeAccount":"Changer de compte","comment_registration":"0","userIsLoggedIn":"","isJetpack":"0","text_direction":"ltr"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/saved_resource(2)"></script>
+<script type="text/javascript" charset="UTF-8" id="polldaddyRatings"><!--//--><![CDATA[//><!--
+PDRTJS_settings_2514839_post_131={"id":2514839,"unique_id":"wp-post-131","title":"Algorithmes%20pour%20les%20graphes%20%28Partie%26nbsp%3B1%29","permalink":"https:\/\/tfeysal.wordpress.com\/2010\/11\/21\/algorithmes-pour-les-graphes-1\/","item_id":"_post_131"}; if ( typeof PDRTJS_RATING !== 'undefined' ){if ( typeof PDRTJS_2514839_post_131 == 'undefined' ){PDRTJS_2514839_post_131 = new PDRTJS_RATING( PDRTJS_settings_2514839_post_131 );}}
+//--><!]]></script><script type="text/javascript" charset="UTF-8" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/rating.js"></script><script type="text/javascript" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/form.js"></script>
+<script type="text/javascript" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/saved_resource(3)"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "https://s0.wp.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.9b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "https://s0.wp.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?m=1363304414h&amp;ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var actionbardata = {"siteID":"15149403","siteName":"Algorithms For Fun","siteURL":"http:\/\/tfeysal.wordpress.com","icon":"<img alt='' src='https:\/\/s1.wp.com\/i\/void.gif' class='avatar avatar-36' height='36' width='36' \/>","canManageOptions":"","canCustomizeSite":"","isFollowing":"","themeSlug":"pub\/inove","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/tfeysal.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Ftfeysal.wordpress.com%2F2010%2F11%2F21%2Falgorithmes-pour-les-graphes-1%2F","themeURL":"","xhrURL":"https:\/\/tfeysal.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"b00c22acc4","isSingular":"1","isFolded":"","isLoggedIn":"","isMobile":"","subscribeNonce":"<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"6138a54be5\" \/>","referer":"https:\/\/tfeysal.wordpress.com\/2010\/11\/21\/algorithmes-pour-les-graphes-1\/","canFollow":"1","statusMessage":"","customizeLink":"https:\/\/tfeysal.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Ftfeysal.wordpress.com%2F2010%2F11%2F21%2Falgorithmes-pour-les-graphes-1%2F","postID":"131","shortlink":"http:\/\/wp.me\/p11z3d-27","canEditPost":"","editLink":"https:\/\/wordpress.com\/post\/tfeysal.wordpress.com\/131","i18n":{"view":"Afficher le site","follow":"Suivre","following":"Abonn\u00e9","edit":"Modifier","login":"Se connecter","signup":"S'inscrire","customize":"Personnaliser","report":"Signaler ce contenu","themeInfo":"Obtenir le th\u00e8me: INove","shortlink":"Copier shortlink","copied":"Copi\u00e9","followedText":"Les nouveaux articles de ce site appara\u00eetront d\u00e9sormais dans votre <a href=\"https:\/\/wordpress.com\/\">lecteur<\/a>","foldBar":"R\u00e9duire cette barre","unfoldBar":"D\u00e9velopper cette barre","editFollows":"G\u00e9rer les abonnements","editSubs":"Gestion des abonnements","viewReader":"Voir le site dans le Lecteur","subscribe":"Inscrivez-moi","enterEmail":"Entrez votre adresse mail","followers":"","alreadyUser":"Vous disposez d\u00e9j\u00e0 d\u02bcun compte WordPress ? <a href=\"https:\/\/tfeysal.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Ftfeysal.wordpress.com%2F2010%2F11%2F21%2Falgorithmes-pour-les-graphes-1%2F\">Connectez-vous maintenant.<\/a>"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/saved_resource(4)"></script><div id="actionbar" class="actnbr-pub-inove actnbr-has-follow"><ul><li class="actnbr-btn actnbr-hidden"> 			    	<a class="actnbr-action actnbr-actn-follow" href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/"><svg class="gridicon gridicon__follow" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 16v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3zM20 2v9h-4v3h-3v4H4c-1.1 0-2-.9-2-2V2h18zM8 13v-1H4v1h4zm3-3H4v1h7v-1zm0-2H4v1h7V8zm7-4H4v2h14V4z"></path></g></svg><span>Suivre</span></a> 			    	<div class="actnbr-popover tip tip-top-left actnbr-notice"> 			    		<div class="tip-arrow"></div> 			    		<div class="tip-inner actnbr-follow-bubble"></div> 			    	</div> 			    </li><li class="actnbr-ellipsis actnbr-hidden"> 			  <svg class="gridicon gridicon__ellipsis" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><circle cx="5" cy="12" r="2"></circle><circle cx="19" cy="12" r="2"></circle><circle cx="12" cy="12" r="2"></circle></g></svg> 			  <div class="actnbr-popover tip tip-top-left actnbr-more"> 			  	<div class="tip-arrow"></div> 			  	<div class="tip-inner"> 				  <ul> 				    <li class="actnbr-sitename actnbr-hidden"><a href="http://tfeysal.wordpress.com/"><img alt="" src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/void.gif" class="avatar avatar-36" height="36" width="36"> Algorithms For Fun</a></li> 				   	<li class="actnbr-folded-customize actnbr-hidden"><a href="https://tfeysal.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Ftfeysal.wordpress.com%2F2010%2F11%2F21%2Falgorithmes-pour-les-graphes-1%2F"><svg class="gridicon gridicon__customize" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M2 6c0-1.505.78-3.08 2-4 0 .845.69 2 2 2 1.657 0 3 1.343 3 3 0 .386-.08.752-.212 1.09.74.594 1.476 1.19 2.19 1.81L8.9 11.98c-.62-.716-1.214-1.454-1.807-2.192C6.753 9.92 6.387 10 6 10c-2.21 0-4-1.79-4-4zm12.152 6.848l1.34-1.34c.607.304 1.283.492 2.008.492 2.485 0 4.5-2.015 4.5-4.5 0-.725-.188-1.4-.493-2.007L18 9l-2-2 3.507-3.507C18.9 3.188 18.225 3 17.5 3 15.015 3 13 5.015 13 7.5c0 .725.188 1.4.493 2.007L3 20l2 2 6.848-6.848c1.885 1.928 3.874 3.753 5.977 5.45l1.425 1.148 1.5-1.5-1.15-1.425c-1.695-2.103-3.52-4.092-5.448-5.977z" data-reactid=".2.1.1:0.1b.0"></path></g></svg><span>Personnaliser<span></span></span></a></li> 				    <li class="actnbr-folded-follow actnbr-hidden"><a class="actnbr-action actnbr-actn-follow" href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/"><svg class="gridicon gridicon__follow" height="24px" width="24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 16v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3zM20 2v9h-4v3h-3v4H4c-1.1 0-2-.9-2-2V2h18zM8 13v-1H4v1h4zm3-3H4v1h7v-1zm0-2H4v1h7V8zm7-4H4v2h14V4z"></path></g></svg><span>Suivre</span></a></li> 						<li class="actnbr-signup actnbr-hidden"><a href="https://wordpress.com/start/">S'inscrire</a></li> 				    <li class="actnbr-login actnbr-hidden"><a href="https://tfeysal.wordpress.com/wp-login.php?redirect_to=https%3A%2F%2Ftfeysal.wordpress.com%2F2010%2F11%2F21%2Falgorithmes-pour-les-graphes-1%2F">Se connecter</a></li> 				     				    <li class="actnbr-shortlink actnbr-hidden"><a href="http://wp.me/p11z3d-27">Copier shortlink</a></li> 				     				     				     				    <li class="actnbr-subs actnbr-hidden"><a href="https://subscribe.wordpress.com/">Gestion des abonnements</a></li> 				    <li class="actnbr-fold actnbr-hidden"><a href="https://tfeysal.wordpress.com/2010/11/21/algorithmes-pour-les-graphes-1/">Réduire cette barre</a></li> 			      </ul> 			    </div> 		      </div> 		    </li> 	      </ul></div>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>		<iframe src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/master.html" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+		<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> blogueurs aiment cette page&nbsp;:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+		<script>
+			var _comscore = _comscore || [];
+			_comscore.push({
+				c1: "2",
+				c2: "7518284"
+			});
+			(function() {
+				var s = document.createElement("script"),
+					el = document.getElementsByTagName("script")[0];
+				s.async = true;
+				s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+				el.parentNode.insertBefore(s, el);
+			})();
+		</script>
+		<noscript>
+			&lt;p class="robots-nocontent"&gt;&lt;img src="https://sb.scorecardresearch.com/p?c1=2&amp;c2=7518284&amp;c3=&amp;c4=&amp;c5=&amp;c6=&amp;c15=&amp;cv=2.0&amp;cj=1" alt="" style="display:none;" width="1" height="1" /&gt;&lt;/p&gt;
+		</noscript><script src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/w.js" type="text/javascript" async="" defer=""></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'15149403','blog_tz':'0','user_lang':'fr','blog_lang':'fr','user_id':'0'}]);
+_stq.push(['view', {'blog':'15149403','v':'wpcom','tz':'0','user_id':'0','post':'131','subd':'tfeysal'}]);
+_stq.push(['extra', {'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWFnNncxc1tjZG9XVXhRZS03JixXRU5XS21nQzFmT0IyLG0/MEx1fFJDLHpdQkUtMkhac011PVNBdG0zT1M2PUc3X01aP2VJREdMOC1peDlJemQyTU18bGFjRWw3c2wwTiVZYTl2T3RJSngueUp2bGc0OEw9QSZmVEFNNF9KbUx3XXdNRGxjTUkwUCZBVUpbOHwmQS5EeXNYW3lXMjYmbyVQOU44MDBwZzZtY0R+TC1CJTEmZyVRNF1afGFIeWZNNy9xL0QubXIlMWJySmFU'}]);
+_stq.push([ 'clickTrackerInit', '15149403', '131' ]);
+	</script>
+<noscript>&lt;img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /&gt;</noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+
+<img src="./Algorithmes pour les graphes (Partie 1) _ Algorithms For Fun_files/g.gif" alt=":)" id="wpstats"></body></html>
