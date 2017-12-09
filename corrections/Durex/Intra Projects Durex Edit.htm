@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://projects.intra.42.fr/scale_teams/1022750/edit -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta content="IE=Edge,chrome=1" http-equiv="X-UA-Compatible">
+<script type="text/javascript" src="./Intra Projects Durex Edit_files/c0523a4102"></script><script src="./Intra Projects Durex Edit_files/nr-1071.min.js"></script><script async="" src="./Intra Projects Durex Edit_files/analytics.js"></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"c0523a4102","applicationID":"61689050","transactionName":"dlYLFkZbW1wBQRdGVFRVAD1AUVZdFxxdUV5B","queueTime":0,"applicationTime":1732,"agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<meta content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0" name="viewport">
+<meta content="yes" name="mobile-web-app-capable">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="translucent-black" name="apple-mobile-web-app-status-bar-style">
+<meta content="Intranet 42" name="apple-mobile-web-app-title">
+<meta content="on" http-equiv="cleartype">
+<link href="https://cdn.intra.42.fr/" rel="preconnect">
+<link href="https://projects.intra.42.fr/assets/42_logo_black-684989d43d629b3c0ff6fd7e1157ee04db9bb7a73fba8ec4e01543d650a1c607.png" rel="icon" type="image/svg">
+<link href="https://projects.intra.42.fr/assets/42_logo_black-684989d43d629b3c0ff6fd7e1157ee04db9bb7a73fba8ec4e01543d650a1c607.png" rel="shortcut icon" type="image/svg">
+<link href="https://projects.intra.42.fr/opensearch.xml" rel="search" title="project" type="application/opensearchdescription+xml">
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"></script>
+<![endif]-->
+<script src="./Intra Projects Durex Edit_files/raven.min.js"></script>
+<script src="./Intra Projects Durex Edit_files/simplemde.min.js"></script>
+<title>Intra Projects Durex Edit</title>
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="rp/F0N7gCy+dEQyIepGvtx6idmxWcre3fZv8hZ+6HQEKVyZGvXdJ85Hf/QGqzuEZTf80ZVOUSCgtzQcDAHYr4A==">
+<link rel="stylesheet" media="all" href="./Intra Projects Durex Edit_files/application-5ca8c3d07b41e09e93109d4953e8e179218b6f936235f6e28742344ede18a76d.css">
+<script>
+  (function() {
+    this._user = {
+      "login": "nop",
+      "id": 10505,
+      "url": "https://profile.intra.42.fr/users/nop"
+    };
+
+    this._consumer_address = 'wss://meta.intra.42.fr/cable';
+
+  }).call(this);
+</script>
+<script>
+  (function() {
+    this._environment = "production";
+
+    this._git_commit = "";
+
+    this._release = "";
+
+  }).call(this);
+</script>
+
+<link rel="stylesheet" href="./Intra Projects Durex Edit_files/font-awesome.min.css"></head><body class=" ">
+<div class="notifications-flash-top-bar">
+
+</div>
+<script>
+  (function() {
+    this._notifCount = 1;
+
+    this._flashes = [];
+
+  }).call(this);
+</script>
+
+<div class="notifications-container" data-flashes-url="https://profile.intra.42.fr/flashes" data-notifications-url="https://profile.intra.42.fr/notifications" style="top: 60px; left: 576.375px;">
+      <header class="notifications--header">
+        <span>notifications</span>
+        <a href="https://profile.intra.42.fr/notifications">See all notifications</a>
+      </header>
+      <ul class="menu-drop-list"></ul>
+    </div>
+
+<div class="main-navbar">
+<div class="main-navbar-left">
+<div class="main-navbar-logo" data-turbolinks-scaffold="">
+<a href="https://profile.intra.42.fr/"><img alt="42" src="./Intra Projects Durex Edit_files/42_logo-7dfc9110a5319a308863b96bda33cea995046d1731cebb735e41b16255106c12.svg">
+</a></div>
+<span class="hidden-sidebars main-menu-trigger lines-button x" data-trigger-menu="">
+<span class="lines"></span>
+</span>
+<a class="search-mobile-button hidden-sidebars icon-search" href="https://profile.intra.42.fr/searches"></a>
+<form action="https://profile.intra.42.fr/searches/search" class="main-navbar-search hidden-xs js-search" data-forum-url="https://forum.intra.42.fr/topics/" data-project-url="https://projects.intra.42.fr/" data-user-url="https://profile.intra.42.fr/users/" method="get">
+<span class="twitter-typeahead" style="position: relative; display: inline-block;"><input autocomplete="off" autofocus="" class="search-input tt-input" name="query" placeholder="search..." spellcheck="false" dir="auto" style="position: relative; vertical-align: top;" aria-activedescendant="" aria-owns="undefined_listbox" role="combobox" aria-readonly="true" aria-autocomplete="list"><span role="status" aria-live="polite" class="visuallyhidden"></span><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: &quot;Futura PT&quot;, Futura, Helvetica, &quot;Sans serif&quot;; font-size: 14.56px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><div role="listbox" class="tt-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"><div role="presentation" class="tt-dataset tt-dataset-0"></div><div role="presentation" class="tt-dataset tt-dataset-1"></div><div role="presentation" class="tt-dataset tt-dataset-2"></div></div></span>
+</form>
+</div>
+<div class="main-navbar-user-nav" data-turbolinks-scaffold="">
+<div class="user-actions hidden-xs">
+<span class="dropdown" id="quest-menu">
+<a class="user-action labelable" data-toggle="dropdown" href="https://projects.intra.42.fr/scale_teams/1022750/edit#">
+<span class="icon-bookmark-3-1 user-action-icon labelable"></span>
+</a>
+<ul aria-labelledby="quest-menu" class="quest-container dropdown-menu dropdown-menu-right" role="menu">
+<p class="quest-legend">
+CURRENT MAIN QUEST
+</p>
+<li class="quest-item">
+<h4 class="quest-header">42 Junior Degree - Level 16</h4>
+<p class="quest-description">Get the intermediate 42 Junior certificate at level 16 with a final internship.</p>
+</li>
+<li>
+<a href="https://profile.intra.42.fr/users/me/quests">See all quests</a>
+</li>
+</ul>
+</span>
+</div>
+<div class="user-actions hidden-xs">
+<a class="user-action labelable" data-notification-drop="" href="https://projects.intra.42.fr/scale_teams/1022750/edit#"><span class="icon-newspaper-2 user-action-icon"></span>
+<span class="user-action-count labeled" data-counter-count="1">1</span>
+</a></div>
+<span class="dropdown">
+<a data-toggle="dropdown" href="https://projects.intra.42.fr/scale_teams/1022750/edit#">
+<span data-login="nop">
+nop
+</span>
+<div class="user-profile-picture visible-sidebars" style="background-image: url(https://cdn.intra.42.fr/users/small_nop.jpg)"></div>
+</a>
+<ul aria-labelledby="User menu" class="dropdown-menu" role="menu">
+<li>
+<a href="https://profile.intra.42.fr/slots"><span class="iconf-calendar"></span>
+Manage slots
+</a></li>
+<li>
+<a href="https://profile.intra.42.fr/users/nop"><span class="iconf-user"></span>
+View my profile
+</a></li>
+<li>
+<a href="https://profile.intra.42.fr/languages">Settings
+</a></li>
+<li>
+<a rel="nofollow" data-method="delete" href="https://signin.intra.42.fr/users/sign_out"><span class="iconf-power-off"></span>
+<b>Logout</b>
+</a></li>
+</ul>
+</span>
+
+<!-- frshp notifications -->
+<!-- = link_to("#{Rails.application.config.module_url['profile']}/friends", :class => "user-action labelable") do -->
+<!-- %span.icon-user -->
+<!-- %span.labeled= current_user.invitations.count -->
+</div>
+</div>
+
+<div class="page">
+<div class="left-sidebar-fix with-main-menu"></div>
+<div class="page-sidebar left-main-container page-sidebar-fixed-left under-main-navbar"><ul class="main-left-navbar">
+<div class="_">
+<li>
+<a class="inactive" href="https://profile.intra.42.fr/"><span class="icon-user-2"></span>
+<span class="visible-overlay">
+Profile
+</span>
+</a></li>
+<li>
+<a class="active" href="https://projects.intra.42.fr/"><span class="icon-network-2-1"></span>
+<span class="visible-overlay">
+Projets
+</span>
+</a></li>
+<li>
+<a class="inactive" href="https://elearning.intra.42.fr/"><span class="icon-movie-play-1"></span>
+<span class="visible-overlay">
+E-learning
+</span>
+</a></li>
+<li>
+<a class="inactive" href="https://forum.intra.42.fr/"><span class="icon-bubble-conversation-5"></span>
+<span class="visible-overlay">
+Forum
+</span>
+</a></li>
+<li>
+<a class="inactive" href="https://companies.intra.42.fr/"><span class="icon-briefcase"></span>
+<span class="visible-overlay">
+Companies
+</span>
+</a></li>
+<li>
+<a class="inactive" href="https://meta.intra.42.fr/"><span class="icon-compass-2"></span>
+<span class="visible-overlay">
+Meta
+</span>
+</a></li>
+<li>
+<a class="inactive" href="https://shop.intra.42.fr/"><span class="icon-shopping-1"></span>
+<span class="visible-overlay">
+Shop
+</span>
+</a></li>
+</div>
+<div class="admin-links">
+</div>
+</ul><div class="app-sidebar-left">
+<div class="marked-title">Menu</div>
+<div class="projects-menu-list">
+<a class="project-item sidebar-item" href="https://projects.intra.42.fr/"><span class="icon-briefcase project-status-icon"></span>
+My projects
+</a><a class="project-item sidebar-item" href="https://projects.intra.42.fr/projects/graph"><span class="iconf-location project-status-icon"></span>
+All projects
+</a><a class="project-item sidebar-item" href="https://projects.intra.42.fr/projects/list"><span class="icon-list-1 project-status-icon"></span>
+List projects
+</a><a class="project-item sidebar-item" href="https://projects.intra.42.fr/cursus_subscriptions"><span class="icon-list-1 project-status-icon"></span>
+Available Cursus
+</a></div>
+<div class="marked-title">Your projects</div>
+<div class="projects-menu-list">
+<a class="project-item sidebar-item" href="https://projects.intra.42.fr/projects/final-internship-peer-video"><span class="icon-box-2 project-status-icon"></span>
+Peer Video
+</a><a class="project-item sidebar-item" href="https://projects.intra.42.fr/projects/final-internship"><span class="icon-box-2 project-status-icon"></span>
+Final Internship
+</a><a class="project-item sidebar-item" href="https://projects.intra.42.fr/projects/nibbler"><span class="icon-box-2 project-status-icon"></span>
+Nibbler
+</a><a class="project-item sidebar-item" href="https://projects.intra.42.fr/projects/roger-skyline-2"><span class="icon-box-2 project-status-icon"></span>
+roger-skyline-2
+</a></div>
+</div></div>
+<div class="page-content" data-turbolinks-scaffold="">
+<div class="row">
+<div class="main-top-menu">
+
+</div>
+<div class="container-item">
+<h1 class="main-title primary">
+Scale for project
+
+<a href="https://projects.intra.42.fr/projects/durex">Durex</a>
+<div class="marked-title">You should correct 2 students in this team</div>
+<!-- -------- La liste des personnes du groupe ------- -->
+<div class="team-users-list">
+<div class="team-user-item">
+<div class="square-s bg-image-item rounded" data-placement="bottom" data-toggle="tooltip" style="background-image: url(https://cdn.intra.42.fr/users/small_yay.jpg)" title="" data-original-title="yay"></div>
+<div class="team-user-item-actions">
+<div class="team-user-role rounded bprima"></div>
+</div>
+</div>
+<div class="team-user-item">
+<div class="square-s bg-image-item rounded" data-placement="bottom" data-toggle="tooltip" style="background-image: url(https://cdn.intra.42.fr/users/small_nop2.jpg)" title="" data-original-title="nop2"></div>
+<div class="team-user-item-actions">
+<div class="team-user-role rounded bprima"></div>
+<span class="iconf-star-1 leader-user" data-placement="bottom" data-toggle="tooltip" title="" data-original-title="Team leader"></span>
+</div>
+</div>
+</div>
+</h1><h4 class="marked-title">Git repository</h4>
+<div class="container-inner-item project-repo">
+<div class="input-group">
+<input class="repo-url form-control" disabled="" type="text" value="vogsphere@vogsphere.42.fr:intra/2017/activities/durex/nop2">
+<span class="copy input-group-addon" data-clipboard-text="vogsphere@vogsphere.42.fr:intra/2017/activities/durex/nop2">
+<span class="icon-paste"></span>
+</span>
+</div>
+</div>
+
+
+<div class="scale-introduction dancer from-down" id="introduction-794">
+<h3>Introduction</h3>
+<p>
+
+<br>Nous vous demandons pour le bon déroulement de cette évaluation de
+<br>respecter les règles suivantes :
+<br>
+<br>- Restez courtois, polis, respectueux et constructifs en toutes
+<br>  situations lors de cet échange. Le lien de confiance entre la
+<br>  communauté 42 et vous en dépend.
+<br>
+<br>- Mettez en évidence auprès de la personne (ou du groupe) notée les
+<br>  dysfonctionnements éventuels du travail rendu, et prenez le temps
+<br>  d'en discuter et d'en débattre.
+<br>
+<br>- Acceptez qu'il puisse y avoir parfois des différences
+<br>  d’interprétation sur les demandes du sujet ou l’étendue des
+<br>  fonctionnalités. Restez ouvert d'esprit face à la vision de
+<br>  l'autre (a-t-il ou elle raison ou tort ?), et notez le plus
+<br>  honnêtement possible. La pédagogie de 42 n'a de sens que si
+<br>  la peer-évaluation est faite sérieusement.
+<br>
+</p>
+</div>
+<div class="scale-guidelines dancer from-down" id="guidelines-794">
+<h3>Guidelines</h3>
+<p>
+
+<br>- Vous ne devez évaluer que ce qui se trouve sur le depôt GiT de rendu
+<br>  de l'étudiant(e) ou du groupe.
+<br>
+<br>- Prenez soin de vérifier que le depôt GiT est bien celui
+<br>  correspondant a l'étudiant(e) ou au groupe, et au projet.
+<br>
+<br>- Verifiez méticuleusement qu'aucun alias malicieux n'a été utilisé
+<br>  pour vous induire en erreur et vous faire évaluer autre chose que
+<br>  le contenu du dépot officiel.
+<br>
+<br>- Tout script sensé faciliter l'évaluation fourni par l'un des deux
+<br>  partis doit être rigoureusement vérifié par l'autre parti pour
+<br>  éviter des mauvaises surprises.
+<br>
+<br>- Si l'étudiant(e) correcteur/correctrice n'a pas encore fait ce
+<br>  projet, il est obligatoire pour cet(te) etudiant(e) de lire le
+<br>  sujet en entier avant de commencer cette soutenance.
+<br>
+<br>- Utilisez les flags disponibles sur ce barème pour signaler un
+<br>  rendu vide, non fonctionnel, une faute de norme, un cas de triche,
+<br>  etc. Dans ce cas, l'évaluation est terminée et la note finale est
+<br>  0 (ou -42 dans le cas special de la triche). Toutefois, hors cas
+<br>  de triche, vous etes encouragés a continuer d'échanger autour du
+<br>  travail éffectué (ou non effectué justement) pour identifier les
+<br>  problemes ayant entrainé cette situation et les éviter pour le
+<br>  prochain rendu.
+<br>
+</p>
+</div>
+
+</div>
+<div class="container-item dancer from-down" id="attachments-794">
+<h2>Attachments</h2>
+<div class="project-attachments-list">
+</div>
+
+
+<div class="project-attachments-list">
+<div class="project-attachment-item">
+<h4 class="attachment-name">
+<span class="icon-file"></span>
+<a target="_blank" href="https://cdn.intra.42.fr/pdf/pdf/1072/Durex.fr.pdf">Sujet</a>
+</h4>
+</div>
+</div>
+
+
+</div>
+
+<form novalidate="novalidate" class="simple_form form-horizontal edit_scale_team" id="edit_scale_team_1022750" action="https://projects.intra.42.fr/projects/durex/project_sessions/1246/evaluations/1048/scales/794/scale_teams/1022750" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="rp/F0N7gCy+dEQyIepGvtx6idmxWcre3fZv8hZ+6HQEKVyZGvXdJ85Hf/QGqzuEZTf80ZVOUSCgtzQcDAHYr4A=="><div class="container-item scale-section-answers">
+<h2 class="main-title primary">Sections</h2>
+<div class="on-grey">
+<section class="scale-section-item dancer from-down" id="section-2740">
+<h3 class="main-title">Durex source</h3>
+<p>Préliminaires.</p>
+<h4 class="scale-question-name">Préliminaires</h4>
+<p class="scale-section-guidelines">
+
+<br>Avant de commencer la soutenance, veuillez vérifier les points suivants :
+<br>- L'évaluation doit se passer dans une machine virtuelle sous le système
+<br>  d'exploitation choisi par le corrigé en disposant des droits root.
+<br>- Le projet est en C ou en assembleur,
+<br>- Le projet utilise bien les fonctions fork ainsi que chdir,
+<br>- Un Makefile contenant les règles usuelles est présent.
+<br>
+<br>Vérifiez également que le projet n'utilise pas de bibliothèques qui nuit
+<br>à l'intérêt pédagogique du projet, comprendre que la(les) bibliothèque(s)
+<br>ne font pas le café à elle(s)-seule(s).
+<br>
+<br>Si un seul de ces points est invalide, la correction s'arrête.
+<br>
+</p>
+<div class="scale-question-answers">
+<div class="form-group hidden scale_team_answer_id"><div class="col-sm-10"><input class="form-control hidden" name="[scale_team][answers_attributes][0][id]" type="hidden" id="scale_team_answer_id"></div></div>
+<div class="form-group hidden scale_team_answer_question_id"><div class="col-sm-10"><input class="form-control hidden" value="8424" name="[scale_team][answers_attributes][0][question_id]" type="hidden" id="scale_team_answer_question_id"></div></div>
+<div class="btn-group block">
+<input autocomplete="off" class="checkbox-input" name="[scale_team][answers_attributes][0][value]" id="radio_[scale_team][answers_attributes][0]_true" type="radio" value="1">
+<label class="btn btn-success checkbox-label light-bg" for="radio_[scale_team][answers_attributes][0]_true">
+<span class="icon-check"></span>
+Yes
+</label>
+<input autocomplete="off" class="checkbox-input" name="[scale_team][answers_attributes][0][value]" id="radio_[scale_team][answers_attributes][0]_false" type="radio" value="0" checked="checked">
+<label class="btn btn-danger checkbox-label light-bg" for="radio_[scale_team][answers_attributes][0]_false">
+<span class="icon-times"></span>
+No
+</label>
+</div>
+</div>
+</section>
+<section class="scale-section-item dancer from-down" id="section-2741">
+<h3 class="main-title">Durex utilisation</h3>
+<p></p>
+<h4 class="scale-question-name">Lancement trojan</h4>
+<p class="scale-section-guidelines">
+
+<br>Le corrigé doit pouvoir montrer que le port 4242 est pas en mode LISTEN.
+<br>
+<br>Lancez le programme en utilisateur root.
+<br>Le login du corrigé doit être visible sur la sortie standard.
+<br>Le programme se termine correctement sans erreurs.
+<br>
+<br>Le corrigé doit pouvoir montrer que le port 4242 est maintenant bien en mode LISTEN.
+<br>Aucune erreur ne doit être visible.
+<br>
+<br>Si une condition n'est pas respectée, alors la correction s'arrête ici.
+<br>
+</p>
+<div class="scale-question-answers">
+<div class="form-group hidden scale_team_answer_id"><div class="col-sm-10"><input class="form-control hidden" name="[scale_team][answers_attributes][1][id]" type="hidden" id="scale_team_answer_id"></div></div>
+<div class="form-group hidden scale_team_answer_question_id"><div class="col-sm-10"><input class="form-control hidden" value="8425" name="[scale_team][answers_attributes][1][question_id]" type="hidden" id="scale_team_answer_question_id"></div></div>
+<div class="btn-group block">
+<input autocomplete="off" class="checkbox-input" name="[scale_team][answers_attributes][1][value]" id="radio_[scale_team][answers_attributes][1]_true" type="radio" value="1">
+<label class="btn btn-success checkbox-label light-bg" for="radio_[scale_team][answers_attributes][1]_true">
+<span class="icon-check"></span>
+Yes
+</label>
+<input autocomplete="off" class="checkbox-input" name="[scale_team][answers_attributes][1][value]" id="radio_[scale_team][answers_attributes][1]_false" type="radio" value="0" checked="checked">
+<label class="btn btn-danger checkbox-label light-bg" for="radio_[scale_team][answers_attributes][1]_false">
+<span class="icon-times"></span>
+No
+</label>
+</div>
+</div>
+<h4 class="scale-question-name">Tentative utilisation trojan</h4>
+<p class="scale-section-guidelines">
+
+<br>Tentez de vous connecter via la commande "netcat <ip> 4242" sur la machine
+<br>à distance.
+<br>Un prompt doit alors demander un password.
+<br>
+<br>En cas de mauvais password, le prompt doit redemander le password.
+<br>Lorsque le password entré est correct, un nouveau prompt est alors ouvert.
+<br>
+<br>Vérifiez dans le code source que le mot de passe en question n'est pas codé en clair.
+<br>
+<br>Si une de ces conditions n'est pas respectée, alors la correction s'arrête ici.
+<br>
+</ip></p>
+<div class="scale-question-answers">
+<div class="form-group hidden scale_team_answer_id"><div class="col-sm-10"><input class="form-control hidden" name="[scale_team][answers_attributes][2][id]" type="hidden" id="scale_team_answer_id"></div></div>
+<div class="form-group hidden scale_team_answer_question_id"><div class="col-sm-10"><input class="form-control hidden" value="8426" name="[scale_team][answers_attributes][2][question_id]" type="hidden" id="scale_team_answer_question_id"></div></div>
+<div class="btn-group block">
+<input autocomplete="off" class="checkbox-input" name="[scale_team][answers_attributes][2][value]" id="radio_[scale_team][answers_attributes][2]_true" type="radio" value="1">
+<label class="btn btn-success checkbox-label light-bg" for="radio_[scale_team][answers_attributes][2]_true">
+<span class="icon-check"></span>
+Yes
+</label>
+<input autocomplete="off" class="checkbox-input" name="[scale_team][answers_attributes][2][value]" id="radio_[scale_team][answers_attributes][2]_false" type="radio" value="0" checked="checked">
+<label class="btn btn-danger checkbox-label light-bg" for="radio_[scale_team][answers_attributes][2]_false">
+<span class="icon-times"></span>
+No
+</label>
+</div>
+</div>
+<h4 class="scale-question-name">Trojan utilisation</h4>
+<p class="scale-section-guidelines">
+
+<br>Maintenant, relancer la machine virtuelle et retenter de se connecter sur
+<br>cette machine par la commande "netcat <ip> 4242".
+<br>
+<br>Lorsque le password entré est correct, un nouveau prompt est alors ouvert.
+<br>Lancer la commande pour ouvrir le second shell en disposant des droits root.
+<br>
+<br>Enfin, à la fermeture du shell reverse, la connexion se ferme correctement.
+<br>
+<br>Si une condition n'est pas respectée, alors la correction s'arrête ici.
+<br>
+</ip></p>
+<div class="scale-question-answers">
+<div class="form-group hidden scale_team_answer_id"><div class="col-sm-10"><input class="form-control hidden" name="[scale_team][answers_attributes][3][id]" type="hidden" id="scale_team_answer_id"></div></div>
+<div class="form-group hidden scale_team_answer_question_id"><div class="col-sm-10"><input class="form-control hidden" value="8427" name="[scale_team][answers_attributes][3][question_id]" type="hidden" id="scale_team_answer_question_id"></div></div>
+<div class="btn-group block">
+<input autocomplete="off" class="checkbox-input" name="[scale_team][answers_attributes][3][value]" id="radio_[scale_team][answers_attributes][3]_true" type="radio" value="1">
+<label class="btn btn-success checkbox-label light-bg" for="radio_[scale_team][answers_attributes][3]_true">
+<span class="icon-check"></span>
+Yes
+</label>
+<input autocomplete="off" class="checkbox-input" name="[scale_team][answers_attributes][3][value]" id="radio_[scale_team][answers_attributes][3]_false" type="radio" value="0" checked="checked">
+<label class="btn btn-danger checkbox-label light-bg" for="radio_[scale_team][answers_attributes][3]_false">
+<span class="icon-times"></span>
+No
+</label>
+</div>
+</div>
+</section>
+<section class="scale-section-item dancer from-down" id="section-2742">
+<h3 class="main-title">Trojan tentative erreur</h3>
+<p></p>
+<h4 class="scale-question-name">Trojan basique</h4>
+<p class="scale-section-guidelines">
+Tentez de connecter plus de 3 clients en simultané sur le daemon.
+<br>Un message d'erreur doit être lisible coté client uniquement pour indiquer le problème
+<br>
+<br>En dehors de ce prompt spécifique, à aucun moment le trojan ne doit afficher le moindre message d'erreur sur l'ordinateur infecté (sortie ou log).
+<br>
+<br>Si une condition n'est pas respectée, alors la correction s'arrête ici.
+<br>
+</p>
+<div class="scale-question-answers">
+<div class="form-group hidden scale_team_answer_id"><div class="col-sm-10"><input class="form-control hidden" name="[scale_team][answers_attributes][4][id]" type="hidden" id="scale_team_answer_id"></div></div>
+<div class="form-group hidden scale_team_answer_question_id"><div class="col-sm-10"><input class="form-control hidden" value="8428" name="[scale_team][answers_attributes][4][question_id]" type="hidden" id="scale_team_answer_question_id"></div></div>
+<div class="btn-group block">
+<input autocomplete="off" class="checkbox-input" name="[scale_team][answers_attributes][4][value]" id="radio_[scale_team][answers_attributes][4]_true" type="radio" value="1">
+<label class="btn btn-success checkbox-label light-bg" for="radio_[scale_team][answers_attributes][4]_true">
+<span class="icon-check"></span>
+Yes
+</label>
+<input autocomplete="off" class="checkbox-input" name="[scale_team][answers_attributes][4][value]" id="radio_[scale_team][answers_attributes][4]_false" type="radio" value="0" checked="checked">
+<label class="btn btn-danger checkbox-label light-bg" for="radio_[scale_team][answers_attributes][4]_false">
+<span class="icon-times"></span>
+No
+</label>
+</div>
+</div>
+<h4 class="scale-question-name">Trojan avancé</h4>
+<p class="scale-section-guidelines">
+
+<br>Le correcteur est libre de tenter de faire planter le trojan.
+<br>En cas d'arrêt imprévu, le daemon doit quitter proprement et aucun message doit être visible sur l'ordinateur de la personne infécté.
+<br>
+<br>Si une condition n'est pas respectée, alors la correction s'arrête ici.
+<br>
+</p>
+<div class="scale-question-answers">
+<div class="form-group hidden scale_team_answer_id"><div class="col-sm-10"><input class="form-control hidden" name="[scale_team][answers_attributes][5][id]" type="hidden" id="scale_team_answer_id"></div></div>
+<div class="form-group hidden scale_team_answer_question_id"><div class="col-sm-10"><input class="form-control hidden" value="8429" name="[scale_team][answers_attributes][5][question_id]" type="hidden" id="scale_team_answer_question_id"></div></div>
+<div class="btn-group block">
+<input autocomplete="off" class="checkbox-input" name="[scale_team][answers_attributes][5][value]" id="radio_[scale_team][answers_attributes][5]_true" type="radio" value="1">
+<label class="btn btn-success checkbox-label light-bg" for="radio_[scale_team][answers_attributes][5]_true">
+<span class="icon-check"></span>
+Yes
+</label>
+<input autocomplete="off" class="checkbox-input" name="[scale_team][answers_attributes][5][value]" id="radio_[scale_team][answers_attributes][5]_false" type="radio" value="0" checked="checked">
+<label class="btn btn-danger checkbox-label light-bg" for="radio_[scale_team][answers_attributes][5]_false">
+<span class="icon-times"></span>
+No
+</label>
+</div>
+</div>
+</section>
+<section class="scale-section-item dancer from-down" id="section-2743">
+<h3 class="main-title">Trojan implémentation</h3>
+<p></p>
+<h4 class="scale-question-name">Implémentation</h4>
+<p class="scale-section-guidelines">
+
+<br>La méthode d'implémentation utilisé semble parfaitement adaptée aux besoin de l'utilisation.
+<br>La note minimale est accordée au rendu basique avec très peu d'explication.
+<br>
+<br>L'utilisation d'un quine et l'explication de son implémentation va permettre ici d'avoir la note maximale.
+<br>
+<br>En cas de moindre soucis dans l'explication, la correction s'arrête.
+<br>
+</p>
+<div class="scale-question-answers">
+<div class="form-group hidden scale_team_answer_id"><div class="col-sm-10"><input class="form-control hidden" name="[scale_team][answers_attributes][6][id]" type="hidden" id="scale_team_answer_id"></div></div>
+<div class="form-group hidden scale_team_answer_question_id"><div class="col-sm-10"><input class="form-control hidden" value="8430" name="[scale_team][answers_attributes][6][question_id]" type="hidden" id="scale_team_answer_question_id"></div></div>
+<div class="marked-title text-center">Rate it from 0 (failed) through 5 (excellent)</div>
+<input autocomplete="off" class="star-range" data-star-range="5" max="5" name="[scale_team][answers_attributes][6][value]" step="1" type="range" value="0" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;"><div class="rangeslider rangeslider--horizontal" id="js-rangeslider-0"><div class="rangeslider__fill" style="width: 586px;"></div><div class="rangeslider__handle" style="left: 566px;"></div></div>
+<hr>
+</div>
+</section>
+<section class="scale-section-item dancer from-down" id="section-2744">
+<h3 class="main-title">Trojan bonus</h3>
+<p>Les bonus ne doivent être évalués que si et seulement si la partie
+obligatoire est PARFAITE. Par PARFAITE, on entend bien évidemment
+qu'elle est entièrement réalisée, qu'il n'est pas possible de
+mettre son comportement en défaut, même en cas d'erreur, aussi
+vicieuse soit-elle, de mauvaise utilisation, etc. Concrètement,
+cela signifie que si la partie obligatoire n'a pas obtenu TOUS les
+points pendant cette soutenance, les bonus doivent être
+intégralement IGNORÉS.
+</p>
+<h4 class="scale-question-name">Bonus faits pour ce projet</h4>
+<p class="scale-section-guidelines">
+
+<br>Les bonus doivent être un minimum utiles, et bien implémentés.
+<br>La notation est à la discrétion du correcteur.
+<br>
+<br>Voici des exemples de bonus recevables:
+<br>
+<br>- Fonctions utilitaires
+<br>- Utilisation packing
+<br>- Système d'authentification avancé
+<br>- ...
+<br>
+</p>
+<div class="scale-question-answers">
+<div class="form-group hidden scale_team_answer_id"><div class="col-sm-10"><input class="form-control hidden" name="[scale_team][answers_attributes][7][id]" type="hidden" id="scale_team_answer_id"></div></div>
+<div class="form-group hidden scale_team_answer_question_id"><div class="col-sm-10"><input class="form-control hidden" value="8431" name="[scale_team][answers_attributes][7][question_id]" type="hidden" id="scale_team_answer_question_id"></div></div>
+<div class="marked-title text-center">Rate it from 0 (failed) through 5 (excellent)</div>
+<input autocomplete="off" class="star-range" data-star-range="5" max="5" name="[scale_team][answers_attributes][7][value]" step="1" type="range" value="0" style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;"><div class="rangeslider rangeslider--horizontal" id="js-rangeslider-1"><div class="rangeslider__fill" style="width: 586px;"></div><div class="rangeslider__handle" style="left: 566px;"></div></div>
+<hr>
+</div>
+</section>
+</div>
+</div>
+<div class="container-item dancer from-down" id="ratings-794">
+<h2>Ratings</h2>
+<p class="marked-title">Don’t forget to check the flag corresponding to the defense</p>
+<div class="btn-group block flags-buttons" data-radio-item="flag-small">
+<label class="btn btn-default btn-success label_flag_ok on-active positive" for="scale_team_flag_id_1" name="scale_team[flag_id]">
+<span class="iconf-check-4"></span>
+Ok
+</label>
+<label class="btn btn-default btn-success label_flag_outstanding_project on-active positive active" for="scale_team_flag_id_9" name="scale_team[flag_id]">
+<span class="iconf-star-1"></span>
+Outstanding project
+</label>
+</div>
+<div class="btn-group block flags-buttons" data-radio-item="flag-small">
+<label class="btn btn-danger btn-default label_flag_empty_work negative on-active" for="scale_team_flag_id_2" name="scale_team[flag_id]">
+<span class="iconf-file-1"></span>
+Empty work
+</label>
+<label class="btn btn-danger btn-default label_flag_incomplete_work negative on-active" for="scale_team_flag_id_3" name="scale_team[flag_id]">
+<span class="iconf-file-attention"></span>
+Incomplete work
+</label>
+<label class="btn btn-danger btn-default label_flag_no_author_file negative on-active" for="scale_team_flag_id_4" name="scale_team[flag_id]">
+<span class="iconf-bubble-attention-4"></span>
+No author file
+</label>
+<label class="btn btn-danger btn-default label_flag_invalid_compilation negative on-active" for="scale_team_flag_id_5" name="scale_team[flag_id]">
+<span class="iconf-skull-2"></span>
+Invalid compilation
+</label>
+<label class="btn btn-danger btn-default label_flag_norme negative on-active" for="scale_team_flag_id_6" name="scale_team[flag_id]">
+<span class="iconf-receipt-1"></span>
+Norme
+</label>
+<label class="btn btn-danger btn-default label_flag_cheat negative on-active" for="scale_team_flag_id_7" name="scale_team[flag_id]">
+<span class="iconf-layers"></span>
+Cheat
+</label>
+<label class="btn btn-danger btn-default label_flag_crash negative on-active" for="scale_team_flag_id_8" name="scale_team[flag_id]">
+<span class="iconf-bomb"></span>
+Crash
+</label>
+<label class="btn btn-danger btn-default label_flag_incomplete_group negative on-active" for="scale_team_flag_id_10" name="scale_team[flag_id]">
+<span class="iconf-user-delete-2"></span>
+Incomplete group
+</label>
+</div>
+</div>
+
+<div class="container-item">
+<h2 class="main-title primary">Conclusion</h2>
+<div class="on-grey">
+<div class="scale-final-evaluation hidden">
+<div class="form-group radio_buttons optional scale_team_flag"><label class="col-sm-2 control-label radio_buttons optional">Flag</label><div class="col-sm-10"><input type="hidden" name="scale_team[flag_id]" value=""><span class="radio"><label for="scale_team_flag_id_1"><input class="radio_buttons optional" type="radio" value="1" checked="checked" name="scale_team[flag_id]" id="scale_team_flag_id_1">Ok</label></span><span class="radio"><label for="scale_team_flag_id_2"><input class="radio_buttons optional" type="radio" value="2" name="scale_team[flag_id]" id="scale_team_flag_id_2">Empty work</label></span><span class="radio"><label for="scale_team_flag_id_3"><input class="radio_buttons optional" type="radio" value="3" name="scale_team[flag_id]" id="scale_team_flag_id_3">Incomplete work</label></span><span class="radio"><label for="scale_team_flag_id_4"><input class="radio_buttons optional" type="radio" value="4" name="scale_team[flag_id]" id="scale_team_flag_id_4">No author file</label></span><span class="radio"><label for="scale_team_flag_id_5"><input class="radio_buttons optional" type="radio" value="5" name="scale_team[flag_id]" id="scale_team_flag_id_5">Invalid compilation</label></span><span class="radio"><label for="scale_team_flag_id_6"><input class="radio_buttons optional" type="radio" value="6" name="scale_team[flag_id]" id="scale_team_flag_id_6">Norme</label></span><span class="radio"><label for="scale_team_flag_id_7"><input class="radio_buttons optional" type="radio" value="7" name="scale_team[flag_id]" id="scale_team_flag_id_7">Cheat</label></span><span class="radio"><label for="scale_team_flag_id_8"><input class="radio_buttons optional" type="radio" value="8" name="scale_team[flag_id]" id="scale_team_flag_id_8">Crash</label></span><span class="radio"><label for="scale_team_flag_id_10"><input class="radio_buttons optional" type="radio" value="10" name="scale_team[flag_id]" id="scale_team_flag_id_10">Incomplete group</label></span><span class="radio"><label for="scale_team_flag_id_9"><input class="radio_buttons optional" type="radio" value="9" name="scale_team[flag_id]" id="scale_team_flag_id_9">Outstanding project</label></span></div></div>
+</div>
+<div class="scale-final-comments" id="comments-794">
+<p class="marked-title">Leave a comment on this evaluation</p>
+<div class="form-group text required scale_team_comment"><label class="col-sm-2 control-label text required" for="scale_team_comment"><abbr title="required">*</abbr> Comment</label><div class="col-sm-10"><textarea class="form-control text required" required="required" aria-required="true" name="scale_team[comment]" id="scale_team_comment"></textarea></div></div>
+</div>
+<input id="token" name="token" class="hidden" type="hidden">
+<div class="scale-final-submit">
+<input class="btn btn-primary btn-block" data-disable-with="Finishing evaluation..." name="commit" type="submit" value="Finish evaluation">
+</div>
+</div>
+</div>
+</form>
+
+
+
+</div>
+</div>
+</div>
+<div aria-hidden="true" aria-labelledby="smartModalLabel" class="modal fade" id="smartModal" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button aria-hidden="true" class="close" data-dismiss="modal" type="button">
+x
+</button>
+<h3 id="smartModalLabel">
+
+</h3>
+</div>
+<div class="modal-body">
+<h4 class="note-title"></h4>
+</div>
+<div class="modal-footer">
+<button aria-hidden="true" class="btn" data-dismiss="modal">Cancel</button>
+<button class="send btn btn-primary">Send</button>
+</div>
+</div>
+</div>
+</div>
+<div aria-hidden="true" aria-labelledby="flashModalLabel" class="modal fade" id="flashModal" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button aria-hidden="true" class="close" data-dismiss="modal" type="button">
+x
+</button>
+<h3 id="flashModalLabel"></h3>
+</div>
+<div class="modal-body">
+<h4 class="note-title">Flash modal content (raw)</h4>
+</div>
+<div class="modal-footer">
+<button aria-hidden="true" class="btn btn-block btn-default" data-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+  function google_analytics() {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', "UA-55986469-3", 'auto');
+
+    ga('send', 'pageview');
+  }
+
+  if (!document.documentElement.hasAttribute("data-turbolinks-preview"))
+    google_analytics();
+</script>
+
+<div data-cache="true" class="hide"></div>
+
+<script>
+  var jsClasses = ["new_message", "topic-reply"];
+  jsClasses.forEach(function(className) {
+    Array.prototype.forEach.call(document.getElementsByClassName(className), function (e) {
+      e.classList.add("js-hidden");
+    });
+  });
+</script>
+<script src="./Intra Projects Durex Edit_files/application-bd39715f742947d932e589d0e2c77f4c42b8e7b055533aeab2fb9bfaf9dfb14b.js"></script>
+
+
+
+</body></html>
